@@ -4,7 +4,10 @@ import logo from '../assets/images/logo.svg';
 
 const App = () => (
     <div>
-       <h1>HELLO WORLD</h1>
+        <div className="app">
+            <img src={logo} className="logo rotate"/>
+            <h1>Welcome To React</h1>
+        </div>
     </div>
 );
 
