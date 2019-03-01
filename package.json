@@ -1,24 +1,34 @@
 {
-  "name": "react_starter",
+  "name": "TLCDesigns",
   "version": "1.0.0",
-  "description": "Starting setup for react redux project",
+  "description": "Making a website to display accessories ReactJs with Redux, PHP, and MySql",
   "main": "index.js",
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:8080"
+    }
+  },
   "scripts": {
     "start": "node dev_server.js",
     "bundle": "webpack --config webpack.prod.js --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Scott Bowler",
+  "author": "Michael Capobianco",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Learning-Fuze/react_starter.git"
+    "url": "https://github.com/MichaelCapo23/TLCDesigns"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "material-icons": "^0.3.0",
+    "materialize-css": "^1.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
-    "redux": "^4.0.1"
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-form": "^7.4.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -29,19 +39,16 @@
     "@babel/plugin-proposal-function-sent": "^7.1.0",
     "@babel/plugin-proposal-json-strings": "^7.0.0",
     "@babel/plugin-proposal-numeric-separator": "^7.0.0",
-    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
     "@babel/plugin-proposal-throw-expressions": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.0.0",
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-syntax-async-functions": "^6.13.0",
     "css-loader": "^1.0.0",
     "eslint": "^5.7.0",
-    "eslint-plugin-react": "^7.12.4",
     "file-loader": "^2.0.0",
     "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",

@@ -1,0 +1,17 @@
+{
+    "name": "naux/jwt-simple",
+    "require": {
+        "namshi/jose": "^6.0"
+    },
+    "authors": [
+        {
+            "name": "NauxLiu",
+            "email": "nauxliu@gmail.com"
+        }
+    ],
+     "autoload": {
+        "psr-4": {
+            "Naux\\JWT\\": "src/"
+        }
+    }
+}

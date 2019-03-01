@@ -1,23 +1,11 @@
 const { resolve } = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     output: {
-        filename: 'bundle.[name].js',
-        path: resolve(__dirname, 'dist'),
-        publicPath: '/'
-    },
-    optimization: {
-        splitChunks: {
-            cacheGroups: {
-                vendor: {
-                    test: /node_modules/,
-                    chunks: "initial",
-                    name: "vendor",
-                    priority: 10,
-                    enforce: true
-                }
-            }
-        }
+        filename: 'bundle.js',
+        path: resolve(__dirname, 'public', 'dist'),
+        publicPath: '/dist/'
     },
     context: resolve(__dirname, 'src'),
     module: {
