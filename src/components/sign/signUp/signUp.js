@@ -1,14 +1,14 @@
 import React, {Component} from "react";
 
 
-class Search extends Component{
+class SignUp extends Component{
     render() {
         return (
             <div>
-                <h1 className="center">Search Page</h1>
+                <h1 className="center">Sign Up Page</h1>
             </div>
         )
     }
 }
 
-export default Search
+export default SignUp
