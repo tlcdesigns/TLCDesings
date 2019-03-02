@@ -9,7 +9,7 @@ class Nav extends Component {
         common: [
             {
                 text: "Landing",
-                top: "/"
+                to: "/"
             },
             {
                 text: "Search",
@@ -19,7 +19,7 @@ class Nav extends Component {
         Auth: [
             {
                 text: "Buying",
-                top: "/buying"
+                to: "/buying"
             },
             {
                 text: "Cart",
@@ -47,7 +47,7 @@ class Nav extends Component {
         M.Sidenav.init(this.navRef);
     }
 
-    buildLinkForNav (link) {
+    buildLinkForNav(link) {
         return (
             <li key={link.to}>
                 <Link to={link.to}>{link.text}</Link>
@@ -60,7 +60,7 @@ class Nav extends Component {
     };
 
     getLinksInMenu = () => {
-        let auth = true;
+        let auth = false;
         const {common, Auth, noAuth} = this.state;
         let token = localStorage.getItem("token");
         let links = [...common];
@@ -81,9 +81,9 @@ class Nav extends Component {
         const links = this.getLinksInMenu();
         return (
             <Fragment>
-                <nav>
+                <nav className={"navColor"}>
                     <a href={"#"} data-target="side-nav" className={"sidenav-trigger"}>
-                        <i className={'material-icons'}>menu</i>
+                        <i className={'material-icons show-on-small'}>menu</i>
                     </a>
                     <ul className={"right hide-on-med-and-down"}>
                         {links}

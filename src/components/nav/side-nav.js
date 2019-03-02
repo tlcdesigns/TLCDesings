@@ -8,7 +8,7 @@ class Sidenav extends Component {
 
     render() {
         return (
-            <ul ref={(element) => {this.navRef = element}} className={"sidenav"} id={"side-nav"}>
+            <ul ref={(element) => {this.navRef = element}} className={"sidenav show-on-small"} id={"side-nav"}>
                 {this.props.links}
             </ul>
         )
