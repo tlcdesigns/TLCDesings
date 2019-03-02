@@ -17,7 +17,7 @@ class SignIn extends Component {
                 <h1 className="center">Sign In</h1>
                 <SignInValidation formSubmitFunction={this.signUserIn}/>
                 <p>{this.props.message && hasAttempted ? this.props.message : ""}</p>
-                <p className="col center-align l12 m12 s12 grey-text signin_footer">Dont have an account? <Link className='yellow-text text-darken-2' to={"/SignUp"}>Sign up now! </Link> </p>
+                <p className="col center-align l12 m12 s12">Dont have an account? <Link className='textColor' to={"/SignUp"}>Sign up now! </Link> </p>
             </div>
         )
     }

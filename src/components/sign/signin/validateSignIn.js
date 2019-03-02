@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from "react";
 import Form from "../../helpers/forms"
 import {Field, reduxForm} from 'redux-form';
-import {} from "../../../actions/"
+// import {} from "../../../actions"
 
 
 class SignInValidation extends Component {
@@ -29,7 +29,7 @@ class SignInValidation extends Component {
                             <button type={"button"} onClick={this.props.reset} className={"btn red"}>clear</button>
                         </div>
                         <div className={"col s6"}>
-                            <button className={"btn yellow"}>Sign In</button>
+                            <button className={"btn textColor"}>Sign In</button>
                         </div>
                     </div>
                 </form>

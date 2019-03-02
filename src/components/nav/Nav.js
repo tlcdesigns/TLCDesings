@@ -50,7 +50,7 @@ class Nav extends Component {
     buildLinkForNav(link) {
         return (
             <li key={link.to}>
-                <Link to={link.to}>{link.text}</Link>
+                <Link className={"textColor"} to={link.to}>{link.text}</Link>
             </li>
         )
     }
