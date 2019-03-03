@@ -13,18 +13,23 @@ import Search from "./search";
 import Cart from "./cart";
 import SignIn from "./sign/signin/signIn";
 import SignUp from "./sign/signUp/signUp";
+import Nav from "./nav/Nav"
 
 
 const App = () => (
     <div>
-        <Route exact path={"/"} component={Landing}/>
-        <Route path={"/search"} component={Search}/>
-        <Route path={"/buying"} component={Buying}/>
-        <Route path={"/cart/:userID"} component={Cart}/>
-        <Route path={"/userProfile/:userID"} component={Profile}/>
-        <Route path={"/signIn"} component={SignIn}/>
-        <Route path={"/signUp"} component={SignUp}/>
+        <Nav/>
+        <div className={"container row"}>
+            <Route exact path={"/"} component={Landing}/>
+            <Route path={"/Search"} component={Search}/>
+            <Route path={"/Buying"} component={Buying}/>
+            <Route path={"/Cart/:userID"} component={Cart}/>
+            <Route path={"/UserProfile/:userID"} component={Profile}/>
+            <Route path={"/SignIn"} component={SignIn}/>
+            <Route path={"/SignUp"} component={SignUp}/>
+        </div>
     </div>
+
 );
 
 export default App;
