@@ -1,7 +1,27 @@
 .navColor {
-    background-color: #ffe9ec;
+    /*color: #ff2591;*/
+    color: black;
 }
 
 .textColor {
-    color: #008080;
+    background-color: #00D2BE;
+}
+
+.tempImg {
+    height: 100%;
+    width: 25%;
+}
+
+.designs {
+    position: absolute;
+    top: 4.2%;
+    left: 50%;
+    font-size: 55px;
+    transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 650px) {
+    .designs {
+        font-size: 35px;
+    }
 }
