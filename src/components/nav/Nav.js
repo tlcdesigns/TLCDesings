@@ -1,12 +1,17 @@
 import React, {Component, Fragment} from "react";
 import {connect} from "react-redux";
 import Sidenav from "./side-nav";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import temp from "../../assets/images/temp.jpg";
 
 
 class Nav extends Component {
     state = {
         common: [
+            {
+                text: "TLC Designs",
+                to: "/"
+            },
             {
                 text: "Landing",
                 to: "/"
@@ -49,8 +54,8 @@ class Nav extends Component {
 
     buildLinkForNav(link) {
         return (
-            <li key={link.to}>
-                <Link className={"textColor"} to={link.to}>{link.text}</Link>
+            <li key={link.text === "TLC Designs" ? "designs" : link.to}>
+                <Link className={link.text === "TLC Designs" ? "designs" : "navColor"} to={link.to}>{link.text}</Link>
             </li>
         )
     }
@@ -81,7 +86,8 @@ class Nav extends Component {
         const links = this.getLinksInMenu();
         return (
             <Fragment>
-                <nav className={"navColor"}>
+                <nav className={"textColor"}>
+                    {/*<img className="center tempImg" src={temp}/>*/}
                     <a href={"#"} data-target="side-nav" className={"sidenav-trigger"}>
                         <i className={'material-icons show-on-small'}>menu</i>
                     </a>

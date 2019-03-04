@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 
 class Sidenav extends Component {
 
@@ -8,9 +8,12 @@ class Sidenav extends Component {
 
     render() {
         return (
-            <ul ref={(element) => {this.navRef = element}} className={"sidenav show-on-small"} id={"side-nav"}>
-                {this.props.links}
-            </ul>
+            <Fragment>
+                <div className={"designs"}>TLC Designs</div>
+                <ul ref={(element) => {this.navRef = element}} className={"sidenav show-on-small"} id={"side-nav"}>
+                    {this.props.links}
+                </ul>
+            </Fragment>
         )
     }
 }
