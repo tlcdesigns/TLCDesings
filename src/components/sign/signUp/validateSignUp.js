@@ -1,12 +1,12 @@
 import React, {Component, Fragment} from "react";
 import Form from "../../helpers/forms"
 import {Field, reduxForm} from 'redux-form';
-// import {} from "../../../actions"
+
 
 
 class SignUpValidation extends Component {
 
-    signUserIn = () => {
+    signUpUser = () => {
         this.setState({
             hasAttempted: true
         })
@@ -14,10 +14,10 @@ class SignUpValidation extends Component {
 
 
     render() {
-        const {handleSubmit} = this.props;
+        const {handleSubmit, formSubmitFunction} = this.props;
         return (
             <Fragment>
-                <form onSubmit={handleSubmit(this.signUserIn)}>
+                <form onSubmit={handleSubmit(formSubmitFunction)}>
                     <div>
                         <Field name={"Email"} label={"Email"} component={Form}/>
                     </div>
@@ -26,6 +26,9 @@ class SignUpValidation extends Component {
                     </div>
                     <div>
                         <Field name={"Confirm"} label={"Confirm Password"} type={"Password"} component={Form}/>
+                    </div>
+                    <div>
+                        <Field name={"Username"} label={"Username"} component={Form}/>
                     </div>
                     <div className={"row center"}>
                         <div className={"col s6"}>
@@ -41,7 +44,7 @@ class SignUpValidation extends Component {
     }
 }
 
-function validate({Email, Password, Confirm}) {
+function validate({Email, Password, Confirm, Username}) {
     let errors = {};
 
     if (!Email) {
@@ -56,6 +59,10 @@ function validate({Email, Password, Confirm}) {
         errors.Confirm = "Must Enter Valid Password"
     } else if(Confirm !== Password) {
         errors.Confirm = "Must Match Password Above"
+    }
+
+    if (!Username) {
+        errors.Username = "Please Enter A Valid Username"
     }
 
     return errors
