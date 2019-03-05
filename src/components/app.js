@@ -9,7 +9,7 @@ import {Route} from "react-router-dom"
 import Buying from "./buying";
 import Landing from "./landing";
 import Profile from "./profile";
-import Search from "./search";
+import Search from "./search/index";
 import Cart from "./cart";
 import SignIn from "./sign/signin/signIn";
 import SignUp from "./sign/signUp/signUp";
