@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Making a website to display accessories ReactJs with Redux, PHP, and MySql",
   "main": "index.js",
-  "proxy": {
-    "/api/*": {
+  "prox": {
+    "/tlc/*": {
       "target": "http://localhost:8080"
     }
   },

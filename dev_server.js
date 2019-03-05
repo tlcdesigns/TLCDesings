@@ -12,7 +12,7 @@ const server = new WebpackDevServer(webpack(config), {
     historyApiFallback: true,
     quiet: false,
     noInfo: false,
-    proxy: npm_config.proxy,
+    proxy: npm_config.prox,
     stats: {
         assets: false,
         colors: true,

@@ -86,8 +86,9 @@ class Nav extends Component {
         const links = this.getLinksInMenu();
         return (
             <Fragment>
-                <nav className={"textColor"}>
+                <nav className={"navColor"}>
                     {/*<img className="center tempImg" src={temp}/>*/}
+                    {/*<p className={" center-align designs"}>TLC Designs</p>*/}
                     <a href={"#"} data-target="side-nav" className={"sidenav-trigger"}>
                         <i className={'material-icons show-on-small'}>menu</i>
                     </a>

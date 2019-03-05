@@ -1,15 +1,19 @@
-.navColor {
-    /*color: #ff2591;*/
-    color: black;
+.textColor {
+    color: #ff2591;
+    /*color: black;*/
 }
 
-.textColor {
+.navColor {
     background-color: #00D2BE;
 }
 
 .tempImg {
     height: 100%;
     width: 25%;
+}
+
+.spacingNav {
+    margin-right: 10%;
 }
 
 .designs {
