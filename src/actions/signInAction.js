@@ -7,7 +7,7 @@ export const signInAction = (values) => dispatch => {
     try {
         axios({
             method: "POST",
-            url: "/tlc/signIn.php",
+            url: "/api/signIn.php",
             data: {
                 Email,
                 Password
