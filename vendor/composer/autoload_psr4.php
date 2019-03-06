@@ -11,4 +11,5 @@ return array(
     'Symfony\\Polyfill\\Php56\\' => array($vendorDir . '/symfony/polyfill-php56'),
     'Naux\\JWT\\' => array($vendorDir . '/naux/jwt-simple/src'),
     'Namshi\\JOSE\\' => array($vendorDir . '/namshi/jose/src/Namshi/JOSE'),
+    'Bcrypt\\' => array($vendorDir . '/polarising/bcrypt/src'),
 );

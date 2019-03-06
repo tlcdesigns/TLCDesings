@@ -26,6 +26,10 @@ class ComposerStaticInite4cf2b6569bf2cdd6e2f1cf94c5ca028
             'Naux\\JWT\\' => 9,
             'Namshi\\JOSE\\' => 12,
         ),
+        'B' => 
+        array (
+            'Bcrypt\\' => 7,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -48,6 +52,10 @@ class ComposerStaticInite4cf2b6569bf2cdd6e2f1cf94c5ca028
         'Namshi\\JOSE\\' => 
         array (
             0 => __DIR__ . '/..' . '/namshi/jose/src/Namshi/JOSE',
+        ),
+        'Bcrypt\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/polarising/bcrypt/src',
         ),
     );
 

@@ -1,0 +1,13 @@
+{
+    "name": "michaelcapo23/tlc-desings",
+    "require": {
+        "naux/jwt-simple": "^1.0",
+        "polarising/bcrypt": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "MichaelCapo23",
+            "email": "123pie23@gmail.com"
+        }
+    ]
+}
