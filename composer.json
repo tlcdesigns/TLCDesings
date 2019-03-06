@@ -1,7 +1,8 @@
 {
     "name": "michaelcapo23/tlc-desings",
     "require": {
-        "naux/jwt-simple": "^1.0"
+        "naux/jwt-simple": "^1.0",
+        "polarising/bcrypt": "^1.0"
     },
     "authors": [
         {
