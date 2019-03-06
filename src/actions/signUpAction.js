@@ -3,7 +3,7 @@ import types from "./types";
 
 export const signUserUp = (values) => dispatch => {
     debugger;
-    const {Email, Password, username} = values;
+    const {Email, Password, Username} = values;
     try {
         axios({
             method: "POST",
@@ -11,7 +11,7 @@ export const signUserUp = (values) => dispatch => {
             data: {
                 Email,
                 Password,
-                username
+                Username
             }
         }).then((token) => {
             dispatch({

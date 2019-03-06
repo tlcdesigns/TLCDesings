@@ -21,7 +21,7 @@ $checkForUserQuery = $conn->prepare("SELECT ID
                       WHERE email = ?
                       AND password = ?");
 
-$checkForUserQuery -> bind_param("ss", $email, $passwordHash);
+$checkForUserQuery -> bind_param("ss", $email, $password);
 $checkForUserQuery->execute();
 
 $AccountID = null;
@@ -54,7 +54,6 @@ if($addToLoggedinQuery) {
 } else {
     $logUserIn['loggedinError'] = "Unable to Add User To LoggedIn Table";
 }
-
 
 print_r(json_encode($logUserIn));
 

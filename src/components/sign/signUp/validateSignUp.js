@@ -5,14 +5,6 @@ import {Field, reduxForm} from 'redux-form';
 
 
 class SignUpValidation extends Component {
-
-    signUpUser = () => {
-        this.setState({
-            hasAttempted: true
-        })
-    }
-
-
     render() {
         const {handleSubmit, formSubmitFunction} = this.props;
         return (
