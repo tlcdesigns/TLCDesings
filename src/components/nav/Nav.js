@@ -2,6 +2,7 @@ import React, {Component, Fragment} from "react";
 import {connect} from "react-redux";
 import Sidenav from "./side-nav";
 import {Link} from "react-router-dom";
+import signOutAction from "../../actions/signOutAction"
 import temp from "../../assets/images/temp.jpg";
 
 
@@ -60,6 +61,10 @@ class Nav extends Component {
         )
     }
 
+    // componentDidUpdate = () => {
+    //     if()
+    // }
+
     handleSignOut = () => {
         this.props.signOutAction();
     };
@@ -104,10 +109,10 @@ class Nav extends Component {
 
 function mapStateToProps(state) {
     return {
-
+        token: localStorage.getItem("token")
     }
 }
 
 export default connect(mapStateToProps, {
-
+    signOutAction
 })(Nav)

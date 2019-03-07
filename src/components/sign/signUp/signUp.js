@@ -18,16 +18,15 @@ class SignUp extends Component {
     }
 
     componentDidMount = () => {
-        if(this.props.token) {
-            // route user
+        if(this.props.token || localStorage.getItem("token")) {
+            this.props.history.push("/Search");
         }
     }
 
     componentDidUpdate = () => {
-        debugger;
         if(this.props.token) {
             localStorage.setItem("token", this.props.token);
-            //route user
+            this.props.history.push("/Search");
         } else {
             localStorage.removeItem("token");
         }
