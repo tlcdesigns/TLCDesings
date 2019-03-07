@@ -14,6 +14,7 @@ import Cart from "./cart";
 import SignIn from "./sign/signin/signIn";
 import SignUp from "./sign/signUp/signUp";
 import Nav from "./nav/Nav"
+import Auth from "./HOC/checkAuth"
 
 
 const App = () => (
@@ -22,9 +23,9 @@ const App = () => (
         <div className={"container row"}>
             {/*<Route exact path={"/"} component={Landing}/>*/}
             <Route path={"/Search"} component={Search}/>
-            <Route path={"/Buying"} component={Buying}/>
-            <Route path={"/Cart/:userID"} component={Cart}/>
-            <Route path={"/UserProfile/:userID"} component={Profile}/>
+            <Route path={"/Buying"} component={Auth(Buying)}/>
+            <Route path={"/Cart/:userID"} component={Auth(Cart)}/>
+            <Route path={"/UserProfile/:userID"} component={Auth(Profile)}/>
             <Route path={"/SignIn"} component={SignIn}/>
             <Route path={"/SignUp"} component={SignUp}/>
         </div>
