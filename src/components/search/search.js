@@ -4,7 +4,6 @@ import dummy from '../bummyData/dummy'
 
 class Search extends Component {
     render() {
-        debugger;
         const listings = dummy.map((item,index)=>{
             return (
                 <ListItem key={index} about={item}/>
