@@ -2,7 +2,6 @@ import axios from "axios";
 import types from "./types";
 
 export const signUserUp = (values) => dispatch => {
-    debugger;
     const {Email, Password, Username} = values;
     try {
         axios({
@@ -15,13 +14,13 @@ export const signUserUp = (values) => dispatch => {
             }
         }).then((token) => {
             dispatch({
-                type: types.SIGNUSERUP,
-                token: token.data[0]
+                type: types.SIGNUSERIN,
+                token: token.data
             })
         })
     } catch {
         dispatch({
-            type: types.SIGNUSERUPERROR,
+            type: types.SIGNUSERINERROR,
             message: "Unable To Sign User In"
         })
     }

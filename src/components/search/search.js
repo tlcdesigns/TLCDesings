@@ -3,7 +3,6 @@ import ListItem from './listings';
 import dummy from '../bummyData/dummy'
 
 class Search extends Component {
-
     render() {
         const listings = dummy.map((item,index)=>{
             return (
@@ -20,3 +19,4 @@ class Search extends Component {
     }
  }
  export default Search
+

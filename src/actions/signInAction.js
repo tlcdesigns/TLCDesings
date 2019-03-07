@@ -2,7 +2,6 @@ import axios from "axios";
 import types from "./types";
 
 export const signInAction = (values) => dispatch => {
-    debugger;
     const {Email, Password} = values;
     try {
         axios({
@@ -15,7 +14,7 @@ export const signInAction = (values) => dispatch => {
         }).then((token) => {
             dispatch({
                 type: types.SIGNUSERIN,
-                token: token.data[0]
+                token: token.data
             })
         })
     } catch {

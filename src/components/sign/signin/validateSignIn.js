@@ -23,7 +23,6 @@ class SignInValidation extends Component {
                             <button className={"btn navColor"}>Sign In</button>
                         </div>
                     </div>
-                    <p></p>
                 </form>
             </Fragment>
         )

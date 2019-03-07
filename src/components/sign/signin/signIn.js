@@ -10,12 +10,26 @@ class SignIn extends Component {
         hasAttempted: false
     }
 
-    signUserIn = (values) => {
+    componentDidMount = () => {
+        if(this.props.token) {
+            // route user
+        }
+    }
+
+    componentDidUpdate = () => {
         debugger;
+        if(this.props.token) {
+            localStorage.setItem("token", this.props.token);
+        } else {
+            localStorage.removeItem("token");
+        }
+    }
+
+    signUserIn = async (values) => {
         this.setState({
             hasAttempted: true
         });
-        this.props.signInAction(values);
+        await this.props.signInAction(values);
     }
 
     render() {
@@ -25,7 +39,7 @@ class SignIn extends Component {
                 <h1 className="center">Sign In</h1>
                 <SignInValidation submitFunction={this.signUserIn}/>
                 <p>{this.props.message && hasAttempted ? this.props.message : ""}</p>
-                <p className="col center-align l12 m12 s12">Dont have an account? <Link className='textColor' to={"/SignUp"}>Sign up now! </Link> </p>
+                <p className="col center-align l12 m12 s12">Don't have an account? <Link className='textColor' to={"/SignUp"}>Sign up now! </Link> </p>
             </div>
         )
     }
@@ -33,7 +47,8 @@ class SignIn extends Component {
 
 function mapStateTopRPops(state) {
     return {
-
+        token: state.loggedinReducer.token,
+        message: state.loggedinReducer.message
     }
 }
 

@@ -20,7 +20,7 @@ const App = () => (
     <div>
         <Nav/>
         <div className={"container row"}>
-            <Route exact path={"/"} component={Landing}/>
+            {/*<Route exact path={"/"} component={Landing}/>*/}
             <Route path={"/Search"} component={Search}/>
             <Route path={"/Buying"} component={Buying}/>
             <Route path={"/Cart/:userID"} component={Cart}/>
