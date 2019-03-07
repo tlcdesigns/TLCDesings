@@ -17,6 +17,22 @@ class SignUp extends Component {
         this.props.signUserUp(values)
     }
 
+    componentDidMount = () => {
+        if(this.props.token) {
+            // route user
+        }
+    }
+
+    componentDidUpdate = () => {
+        debugger;
+        if(this.props.token) {
+            localStorage.setItem("token", this.props.token);
+            //route user
+        } else {
+            localStorage.removeItem("token");
+        }
+    }
+
     render() {
         const {hasAttempted} = this.state;
         return (
@@ -32,7 +48,8 @@ class SignUp extends Component {
 
 function mapStateTopRPops(state) {
     return {
-
+        token: state.loggedinReducer.token,
+        message: state.loggedinReducer.message
     }
 }
 

@@ -12,10 +12,10 @@ class Nav extends Component {
                 text: "TLC Designs",
                 to: "/"
             },
-            {
-                text: "Landing",
-                to: "/"
-            },
+            // {
+            //     text: "Landing",
+            //     to: "/"
+            // },
             {
                 text: "Search",
                 to: "/Search"

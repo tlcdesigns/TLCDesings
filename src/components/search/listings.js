@@ -2,7 +2,7 @@ import React from 'react';
 
 
 export default props => {
-    // const {description, image, price, quantity} = props.about
+    // const {description, image, price, quantity} = props.about;
     return (
         <div className="row">
             <div className="col l4 m4 s2">

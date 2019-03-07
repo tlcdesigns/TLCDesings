@@ -3,7 +3,6 @@ require_once('connect.php');
 require '../../vendor/autoload.php';
 use Bcrypt\Bcrypt;
 $bcrypt = new Bcrypt();
-$bcrypt_version = '2a';
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -13,7 +12,7 @@ $jsondata = json_decode($postdata, true);
 
 $email = $jsondata['Email'];
 $passwordUser = $jsondata['Password'];
-$password = $bcrypt->encrypt($passwordUser,$bcrypt_version);
+$password = $bcrypt->encrypt($passwordUser, PASSWORD_DEFAULT);
 $username = $jsondata['Username'];
 $status = 'active';
 
@@ -25,17 +24,15 @@ $addUserSignUpQuery-> bind_param("ssss", $email, $password, $username, $status);
 
 $addUserSignUpQuery->execute();
 $addUserSignUpQuery->store_result();
-print_r($addUserSignUpQuery);
-$signUp = [];
+$logUserIn = [];
 $insertID = $conn->insert_id;
 $tokenValue = date("h:i:sa");
-$token = $bcrypt->encrypt($tokenValue,$bcrypt_version);
-
+$token = $bcrypt->encrypt($tokenValue, PASSWORD_DEFAULT);
 
 if($addUserSignUpQuery) {
-    $signUp['token'] = $token;
+    $logUserIn['token'] = $token;
 } else {
-    $signUp['signUpError'] = "Unable To Log User In";
+    $logUserIn['error'] = "Unable To Log User In";
 }
 
 $insertToLoggedinQuery = $conn->prepare("INSERT INTO `loggedin`
@@ -48,10 +45,12 @@ $insertToLoggedinQuery->execute();
 $insertToLoggedinQuery->store_result();
 
 if($insertToLoggedinQuery) {
-    $signUp['loggedin'] = true;
+    $logUserIn['loggedin'] = true;
 } else {
-    $signUploggedinError = "Unable To Add User To Loggedin Table";
+    $logUserIn['loggedinError'] = true;
 }
+
+print_r(json_encode($logUserIn));
 
 
 

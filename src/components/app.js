@@ -9,7 +9,7 @@ import {Route} from "react-router-dom"
 import Buying from "./buying";
 import Landing from "./landing";
 import Profile from "./profile";
-import Search from "./search/index";
+import Search from "./search/";
 import Cart from "./cart";
 import SignIn from "./sign/signin/signIn";
 import SignUp from "./sign/signUp/signUp";
@@ -20,7 +20,7 @@ const App = () => (
     <div>
         <Nav/>
         <div className={"container row"}>
-            <Route exact path={"/"} component={Landing}/>
+            {/*<Route exact path={"/"} component={Landing}/>*/}
             <Route path={"/Search"} component={Search}/>
             <Route path={"/Buying"} component={Buying}/>
             <Route path={"/Cart/:userID"} component={Cart}/>
