@@ -24,8 +24,107 @@
     transform: translate(-50%, -50%);
 }
 
-@media only screen and (max-width: 650px) {
+.pageContainer {
+    margin-top: 20px;
+}
+
+.priceContainer {
+    min-height: 135px;
+    height: 20%;
+    border-bottom: 1px solid lightgrey;
+}
+
+.subTotal, .EstimatedShipping, .EstimatedTax {
+    height: 21%;
+}
+
+.paySection {
+    padding-left: 0;
+}
+
+.infoHeader {
+    border-bottom: 1px solid lightgrey;
+}
+
+.itemsContainer {
+    height: 100vh;
+    border: 1px solid black;
+    border-top: 0
+}
+
+.paySection {
+    height: 100vh;
+    border: solid black 1px;
+    border-left: 0;
+}
+
+/*.EstimatedTax {*/
+    /*border-bottom: 1px solid lightgrey;*/
+/*}*/
+
+.gutter {
+    width: 100%;
+    margin: auto;
+}
+
+.checkoutBtn {
+    margin-top: 30px;
+}
+
+.orderTotalBtn {
+    margin-top: 20px;
+}
+
+.orderSummary {
+    position: relative;
+    left: 10px;
+    font-size: 25px;
+    color: #ff2591;
+}
+
+@media only screen and (max-width: 850px) {
+    .subTotalText, .EstimatedShippingText, .EstimatedTaxText, .orderTotal, .price {
+        font-size: 12px;
+    }
+
+    .header {
+        font-size: 12px;
+    }
+
+    .orderSummary {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 732px) {
+    .items {
+        width: 40% !important;
+    }
+}
+
+@media only screen and (max-width: 670px) {
     .designs {
         font-size: 35px;
     }
+
+    .header, .infoHeader, .items {
+        font-size: 10px;
+        padding: 0 !important;
+    }
+
+    .itemsContainer, .paySection {
+        width: 50% !important;
+    }
+
+    .subTotalText, .EstimatedShippingText, .EstimatedTaxText {
+        width: 74% !important;
+    }
+
+    .total {
+        position: relative;
+        left: 15px !important;
+    }
+
+
+
 }
