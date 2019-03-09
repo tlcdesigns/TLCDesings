@@ -2,53 +2,53 @@ import topaz from '../search/images/topaz_necklace.jpg'
 
 export default [
     {
-        Description: "Topaz necklace",
+        Title: "Topaz necklace",
         image: topaz,
         price: "$24",
-        Quantity: "only 4 left!"
+        Description: "18 Inches 14K Yellow Gold chain comes FREE with pendant"
 
     },
     {
-        Description: "Topaz necklace",
+        Title: "Topaz necklace",
         image: topaz,
         price: "$24",
-        Quantity: "22"
+        Description: "18 Inches 14K Yellow Gold chain comes FREE with pendant"
     }, 
     {
-        Description: "Topaz necklace",
+        Title: "Topaz necklace",
         image: topaz,
         price: "$24",
-        Quantity: "20"
+        Description: "18 Inches 14K Yellow Gold chain comes FREE with pendant"
     }, 
     {
-        Description: "Topaz necklace",
+        Title: "Topaz necklace",
         image: topaz,
         price: "$24",
-        Quantity: "12"
+        Description: "18 Inches 14K Yellow Gold chain comes FREE with pendant"
     }, 
     {
-        Description: "Topaz necklace",
+        Title: "Topaz necklace",
         image: topaz,
         price: "$24",
-        Quantity: "9"
+        Description: "18 Inches 14K Yellow Gold chain comes FREE with pendant"
     }, 
     {
-        Description: "Topaz necklace",
+        Title: "Topaz necklace",
         image: topaz,
         price: "$24",
-        Quantity: "8"
+        Description: "18 Inches 14K Yellow Gold chain comes FREE with pendant"
     }, 
     {
-        Description: "Topaz necklace",
+        Title: "Topaz necklace",
         image: topaz,
         price: "$24",
-        Quantity: "4"
+        Description: "18 Inches 14K Yellow Gold chain comes FREE with pendant"
     }, 
     {
-        Description: "Emerald bracelet made with copper",
+        Title: "Emerald bracelet made with copper",
         image: topaz,
         price: "$24",
-        Quantity: "8"
+        Description: "18 Inches 14K Yellow Gold chain comes FREE with pendant"
     }, 
 ]
 

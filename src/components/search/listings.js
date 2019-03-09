@@ -3,7 +3,7 @@ import React from 'react';
 
 
 export default props => {
-    const {Description, image, price, Quantity} = props.about
+    const {Title, Description, image, price} = props.about
     return (
         // <div className="row">
         //     <div className="col l4 m6 s12">
@@ -21,9 +21,9 @@ export default props => {
                     </div>
                     <div className="card-stacked">
                         <div className="card-content">
-                            <h1>{Description}</h1>
+                            <h1>{Title}</h1>
+                            <p>{Description}</p>
                             <h1>{price}</h1>
-                            <h1>{Quantity}</h1>
                         </div>
                     </div>  
                 </div>  
