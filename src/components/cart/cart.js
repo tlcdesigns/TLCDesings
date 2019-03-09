@@ -1,8 +1,15 @@
 import React, {Component, Fragment} from "react";
+import dummy from '../bummyData/dummy';
+import MakeCartItem from "./makeItemsCart";
 
 
 class Cart extends Component {
     render() {
+        const listings = dummy.map((item,index)=>{
+            return (
+                <MakeCartItem key={index} about={item}/>
+            )
+        });
         return (
             <Fragment>
                 <div className={"pageContainer row"}>
@@ -13,7 +20,7 @@ class Cart extends Component {
                             <div className="header col s2">Quantity</div>
                             <div className="header total col s2">Total</div>
                         </div>
-                        <div className="itemCards">ITEMS BOUGHT GO HERE</div>
+                        <div className="itemCards">{listings}</div>
                     </div>
                     <div className="col paySection s4">
                         <div className={"linkPayPal"}>
@@ -22,7 +29,7 @@ class Cart extends Component {
                         <div className={"priceContainer"}>
                             <div className="orderSummary">Order Summary</div>
                             <div className={"subTotal"}>
-                                <div className="subTotalText col s10 m9">Subtotal: (10 items)</div>
+                                <div className="subTotalText col s10 m9">Subtotal (10 items)</div>
                                 <div className="price col s3 m3">price</div>
                             </div>
                             <div className={"EstimatedShipping"}>
@@ -38,7 +45,7 @@ class Cart extends Component {
                             <div className="orderTotal col s9">Order Total:</div>
                             <div className="col price s3">price</div>
                             <div className={"center"}>
-                                <button className={"checkoutBtn center btn green"}>Proceed to checkout</button>
+                                <button className={"checkoutBtn center btn"}>checkout</button>
                             </div>
                         </div>
 
