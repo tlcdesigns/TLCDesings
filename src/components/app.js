@@ -22,13 +22,16 @@ const App = () => (
         <Nav/>
         <div className={"container row"}>
             {/*<Route exact path={"/"} component={Landing}/>*/}
-            <Route path={"/Search"} component={Search}/>
             <Route path={"/Buying"} component={Auth(Buying)}/>
             <Route path={"/Cart"} component={Auth(Cart)}/> {/*:userID*/}
             <Route path={"/UserProfile/:userID"} component={Auth(Profile)}/>
             <Route path={"/SignIn"} component={SignIn}/>
             <Route path={"/SignUp"} component={SignUp}/>
         </div>
+        <div className={"row"}>
+            <Route path={"/Search"} component={Search}/>
+        </div>
+        
     </div>
 
 );
