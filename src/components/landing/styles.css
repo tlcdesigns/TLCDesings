@@ -1,6 +1,5 @@
 .textColor {
     color: #ff2591;
-    /*color: black;*/
 }
 
 .navColor {
@@ -48,19 +47,23 @@
 
 .itemsContainer {
     height: 100vh;
-    border: 1px solid black;
-    border-top: 0
+    border-top: 0;
+    padding-left: 0 !important;
 }
 
 .paySection {
     height: 100vh;
     border: solid black 1px;
-    border-left: 0;
+
 }
 
-/*.EstimatedTax {*/
-    /*border-bottom: 1px solid lightgrey;*/
-/*}*/
+.itemDetails {
+    padding-left: 0 !important;
+}
+
+.itemDetails>p:nth-child(3) {
+    margin-left: 20px;
+}
 
 .gutter {
     width: 100%;
@@ -82,6 +85,10 @@
     color: #ff2591;
 }
 
+.checkoutBtn {
+    background-color: #00D2BE;
+}
+
 @media only screen and (max-width: 850px) {
     .subTotalText, .EstimatedShippingText, .EstimatedTaxText, .orderTotal, .price {
         font-size: 12px;
@@ -95,6 +102,50 @@
         font-size: 20px;
     }
 }
+
+.listItemContainer {
+    border-width: 2px 0px 2px 0px;
+    border: solid black
+}
+
+.itemImageContainer {
+    height: 100px;
+    display: inline-block;
+}
+
+.itemImage {
+    height: 100px;
+    width: 100px;
+}
+
+.itemDetails, .itemDetails>p {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.itemDetails>p:nth-child(2) {
+    margin-left: 30%;
+}
+
+.itemImageContainer>p:nth-child(1) {
+    left: 90px;
+    position: relative;
+    color: red;
+}
+
+
+/*.itemDetails>p {*/
+    /*position: relative;*/
+    /*top: -85px;*/
+    /*vertical-align: top;*/
+    /*margin-left: 30px;*/
+/*}*/
+
+/*.itemDetails>p:nth-of-type(4) {*/
+    /*left: 150px;*/
+/*}*/
+
+
 
 @media only screen and (max-width: 732px) {
     .items {
@@ -124,7 +175,4 @@
         position: relative;
         left: 15px !important;
     }
-
-
-
 }
