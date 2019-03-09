@@ -37,28 +37,45 @@
     height: 21%;
 }
 
-.paySection {
-    padding-left: 0;
+.imgAndDesc, .paySection, .itemsContainer, .itemDetails, .itemImage, .itemImageContainer  {
+    padding-left: 0 !important;
+}
+
+.pricePosition {
+    transform: translate(12%);
+}
+
+.totalCard {
+    position: relative;
+    left: 12px !important;
 }
 
 .infoHeader {
     border-bottom: 1px solid lightgrey;
 }
 
+.full {
+    height: 100%;
+}
+
+.detailsContainer {
+    height: 100%;
+}
+
+.descriptionContainer {
+    height: 100%;
+}
+
 .itemsContainer {
     height: 100vh;
     border-top: 0;
-    padding-left: 0 !important;
+
 }
 
 .paySection {
     height: 100vh;
     border: solid black 1px;
 
-}
-
-.itemDetails {
-    padding-left: 0 !important;
 }
 
 .itemDetails>p:nth-child(3) {
@@ -105,7 +122,8 @@
 
 .listItemContainer {
     border-width: 2px 0px 2px 0px;
-    border: solid black
+    border: solid black;
+    padding-left: 0 !important;
 }
 
 .itemImageContainer {

@@ -18,7 +18,7 @@ class Cart extends Component {
                             <div className="items col s6">Items(10 items)</div>
                             <div className="header col s2">Price</div>
                             <div className="header col s2">Quantity</div>
-                            <div className="header total col s2">Total</div>
+                            <div className="header total center col s2">Total</div>
                         </div>
                         <div className="itemCards">{listings}</div>
                     </div>
@@ -30,15 +30,15 @@ class Cart extends Component {
                             <div className="orderSummary">Order Summary</div>
                             <div className={"subTotal"}>
                                 <div className="subTotalText col s10 m9">Subtotal (10 items)</div>
-                                <div className="price col s3 m3">price</div>
+                                <div className="price col s3">price</div>
                             </div>
                             <div className={"EstimatedShipping"}>
                                 <div className="EstimatedShippingText col s10 m9">Estimated Shipping</div>
-                                <div className="price col s3 m3">price</div>
+                                <div className="price col s3">price</div>
                             </div>
                             <div className={"EstimatedTax"}>
                                 <div className="EstimatedTaxText col s10 m9">Estimated Tax</div>
-                                <div className="price col s2 m3">price</div>
+                                <div className="price col s2">price</div>
                             </div>
                         </div>
                         <div className="orderTotalBtn">
