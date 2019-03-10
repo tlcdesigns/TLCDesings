@@ -1,6 +1,9 @@
 import React, {Component} from "react";
+import {connect} from "react-redux";
 import ListItem from './listings';
-import dummy from '../bummyData/dummy'
+import dummy from '../bummyData/dummy';
+import {getAllProducts} from "../../actions/getAllProducts"
+
 
 class Search extends Component {
 
@@ -8,12 +11,28 @@ class Search extends Component {
         this.props.history.push("/itemDetails");
     }
 
+    componentDidMount = () => {
+        this.props.getAllProducts();
+    }
+
+    // componentDidUpdate = () => {
+    //     if(this.props.getAllProducts) {
+    //         const listings = this.props.getAllProducts.map((item,index)=>{
+    //             return (
+    //                 <ListItem key={index} about={item}/>
+    //             )
+    //         });
+    //     }
+    // }
+
     render() {
-        const listings = dummy.map((item,index)=>{
-            return (
-                <ListItem key={index} about={item}/>
-            )
-        });
+        if(this.props.allProducts) {
+            var listings = this.props.allProducts.map((item,index)=>{
+                return (
+                    <ListItem key={index} about={item}/>
+                )
+            });
+        }
         return (
             <div className={"row"}>
                 <div className={"col s2 filterContainer"}>filter section</div>
@@ -22,5 +41,14 @@ class Search extends Component {
         )
     }
  }
- export default Search
+
+ function mapStateToProps(state) {
+    return {
+        allProducts: state.allProductsReducer.allProducts
+    }
+ }
+
+ export default connect(mapStateToProps, {
+     getAllProducts
+ })(Search)
 
