@@ -14,7 +14,7 @@ export default props => {
         //     </div>
         // </div>
         // <div className="row">
-            <div className="searchContainer col l3 m6 s6">
+            <div className="searchContainer col l3 m3 s6">
                 <div className="card">
                     <div className="card-image center-align">
                         <img src={image} alt=""/>
