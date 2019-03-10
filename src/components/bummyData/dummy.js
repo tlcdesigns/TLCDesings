@@ -9,7 +9,7 @@ export default [
 
     },
     {
-        Title: "Topaz necklace",
+        Title: "Topaz",
         image: topaz,
         price: "$24",
         Description: "18 Inches 14K Yellow Gold chain comes FREE with pendant"
