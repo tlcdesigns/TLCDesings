@@ -26,7 +26,6 @@ class Search extends Component {
         )
     }
  }
-
  function mapStateToProps(state) {
     return {
         allProducts: state.allProductsReducer.allProducts
