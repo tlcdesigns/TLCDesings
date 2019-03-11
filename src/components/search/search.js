@@ -6,10 +6,10 @@ import {getAllProducts} from "../../actions/getAllProducts"
 
 
 class Search extends Component {
-
     componentDidMount = () => {
         this.props.getAllProducts();
     }
+
     render() {
         if(this.props.allProducts) {
             var listings = this.props.allProducts.map((item,index)=>{

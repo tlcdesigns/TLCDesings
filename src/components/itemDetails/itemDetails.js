@@ -1,20 +1,34 @@
-import React, {Component} from "react";
+import React, {Component, Fragment} from "react";
+import {connect} from "react-redux"
+import {getItemDetails} from "../../actions/getItemDetails"
+
 
 class ItemDetails extends Component {
-   
+
+    addToCart = () => {
+        let pathname = window.location.pathname;
+        let ID = pathname.slice(pathname.lastIndexOf("/")+1, pathname.length);
+        this.props.getItemDetails(ID)
+    }
+
     render() {
-        // const {Title, Description, image, price} = props.about
+        if(this.props.itemDetails) {
+            console.log(this.props.itemDetails);
+        }
         return (
-            <div>
-                    <div>Item Details</div>
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Add To Cart<i class="material-icons right">send</i></button>
-                    {/* <p>{Title}</p>
-                    <p>{Description}</p>
-                    <h1>{price}</h1> */}
-            </div>
-            
+            <Fragment>
+                <button onClick={this.addToCart} className={"checkoutBtn center btn"}>checkout</button>
+            </Fragment>
         )
     }
 }
 
-export default ItemDetails
+function mapStateToProps(state) {
+    return {
+        itemDetails: state.itemDetailsReducer.itemDetails
+    }
+}
+
+export default connect(mapStateToProps, {
+    getItemDetails
+})(ItemDetails)

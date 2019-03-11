@@ -25,7 +25,7 @@ const App = () => (
         <div className={"container row"}>
             {/*<Route exact path={"/"} component={Landing}/>*/}
             <Route path={"/Buying"} component={Auth(Buying)}/>
-            <Route path={"/itemDetails"} component={ItemDetails}/> {/*:itemID*/}
+            <Route path={"/itemDetails/:itemID"} component={ItemDetails}/>
             <Route path={"/Cart"} component={Auth(Cart)}/> {/*:userID*/}
             <Route path={"/UserProfile/:userID"} component={Auth(Profile)}/>
             <Route path={"/SignIn"} component={SignIn}/>
