@@ -16,6 +16,7 @@ import SignUp from "./sign/signUp/signUp";
 import Nav from "./nav/Nav"
 import Auth from "./HOC/checkAuth";
 import ItemDetails from "./itemDetails"
+import './search/style.css'
 
 
 const App = () => (
