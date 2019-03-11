@@ -6,24 +6,9 @@ import {getAllProducts} from "../../actions/getAllProducts"
 
 
 class Search extends Component {
-
-    routeToDetailsPage = () => {
-        this.props.history.push("/itemDetails");
-    }
-
     componentDidMount = () => {
         this.props.getAllProducts();
     }
-
-    // componentDidUpdate = () => {
-    //     if(this.props.getAllProducts) {
-    //         const listings = this.props.getAllProducts.map((item,index)=>{
-    //             return (
-    //                 <ListItem key={index} about={item}/>
-    //             )
-    //         });
-    //     }
-    // }
 
     render() {
         if(this.props.allProducts) {
@@ -36,7 +21,7 @@ class Search extends Component {
         return (
             <div className={"row"}>
                 <div className={"col s2 filterContainer"}>filter section</div>
-                <div className={"col listingContainer"} onClick={this.routeToDetailsPage}>{listings}</div> {/*add media queries to this dont add grid system*/}
+                <div className={"col listingContainer"}>{listings}</div> {/*add media queries to this dont add grid system*/}
             </div>
         )
     }
