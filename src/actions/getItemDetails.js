@@ -7,7 +7,7 @@ export const getItemDetails = (values) => dispatch => {
             method: "POST",
             url: "/api/itemDetails.php",
             data: {
-                ID: values
+                itemID: values,
             }
         }).then((itemDetails) => {
             dispatch({

@@ -2,7 +2,7 @@ import React, {Component, Fragment} from "react";
 import {connect} from "react-redux";
 import Sidenav from "./side-nav";
 import {Link} from "react-router-dom";
-import signOutAction from "../../actions/signOutAction"
+import {signOutAction} from "../../actions/signOutAction";
 import temp from "../../assets/images/temp.jpg";
 
 
@@ -66,7 +66,8 @@ class Nav extends Component {
     // }
 
     handleSignOut = () => {
-        this.props.signOutAction();
+        let token = localStorage.getItem('token');
+        this.props.signOutAction(token);
     };
 
     getLinksInMenu = () => {

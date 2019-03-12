@@ -1,13 +1,16 @@
 import types from "./types";
 import axios from "axios";
 
-export const addToCartAction = (values) => dispatch =>{
+export const addToCartAction = (itemID, token) => dispatch =>{
+    debugger;
+    console.log(itemID, token);
     try{
         axios({
             method: "POST",
-            URL: "/api/whatever.php",
+            url: "/api/addToCart.php",
             data:{
-                ID: values
+                itemID: itemID,
+                token: token
             }
         }).then((cartConfirmation)=>{
             dispatch({

@@ -8,8 +8,10 @@ class ItemDetails extends Component {
 
     addToCart = () => {
         let pathname = window.location.pathname;
-        let ID = pathname.slice(pathname.lastIndexOf("/")+1, pathname.length);
-        this.props.addToCartAction(ID)
+        let itemID = pathname.slice(pathname.lastIndexOf("/")+1, pathname.length);
+        let token = localStorage.getItem("token");
+        debugger;
+        this.props.addToCartAction(itemID, token);
     };
  
     componentDidMount = () => {
