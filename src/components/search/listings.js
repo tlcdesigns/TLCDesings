@@ -14,9 +14,9 @@ export default props => {
                     </div>
                     <div className="card-stacked">
                         <div className="card-content">
-                            <h1>{title}</h1>
-                            <p>{description}</p>
-                            <h1>{`$${price}`}</h1>
+                            <p>{title}</p>
+                            {/* <p>{description}</p> */}
+                            <p>{`$${price}`}</p>
                         </div>
                     </div>
                 </div>

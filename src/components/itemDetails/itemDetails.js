@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from "react";
 import {connect} from "react-redux"
 import {getItemDetails} from "../../actions/getItemDetails"
+import {addToCartAction} from "../../actions/addToCartAction"
 
 
 class ItemDetails extends Component {
@@ -8,7 +9,13 @@ class ItemDetails extends Component {
     addToCart = () => {
         let pathname = window.location.pathname;
         let ID = pathname.slice(pathname.lastIndexOf("/")+1, pathname.length);
-        this.props.getItemDetails(ID)
+        this.props.addToCartAction(ID)
+    };
+ 
+    componentDidMount = () => {
+        let pathname = window.location.pathname;
+        let ID = pathname.slice(pathname.lastIndexOf("/")+1, pathname.length);
+        this.props.getItemDetails(ID);
     }
 
     render() {
@@ -18,6 +25,9 @@ class ItemDetails extends Component {
         return (
             <Fragment>
                 <button onClick={this.addToCart} className={"checkoutBtn center btn"}>checkout</button>
+                <div>
+                    {this.props.addToCartConfirmation ? this.props.addToCartConfirmation: "" }
+                </div>
             </Fragment>
         )
     }
@@ -25,10 +35,12 @@ class ItemDetails extends Component {
 
 function mapStateToProps(state) {
     return {
-        itemDetails: state.itemDetailsReducer.itemDetails
+        itemDetails: state.itemDetailsReducer.itemDetails,
+        addToCartConfirmation: state.addToCartReducer.cartConfirmation
     }
 }
 
 export default connect(mapStateToProps, {
-    getItemDetails
+    getItemDetails,
+    addToCartAction
 })(ItemDetails)

@@ -4,5 +4,7 @@ export default {
     "ALLPRODUCTS": "all_products",
     "ALLPRODUCTSERROR": "all_products_error",
     "ITEMDETAILS": "item_details",
-    "ITEMDETAILSERROR": "item_details_error"
+    "ITEMDETAILSERROR": "item_details_error",
+    "ADDITEMTOCART": "add_item_to_cart",
+    "ADDITEMTOCARTERROR": "add_item_to_cart_error",
 }
