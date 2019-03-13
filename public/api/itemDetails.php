@@ -7,11 +7,11 @@ header("Content-Type: application/json; charset=UTF-8");
 $postdata = file_get_contents("php://input");
 $jsondata = json_decode($postdata, true);
 
-$ID = $jsondata['ID'];
+$ID = $jsondata['itemID'];
 $itemDetails = [];
 
 $getItemDetailsQuery = $conn->prepare("SELECT * FROM `products`
-                                            WHERE `ID` = ?");
+                                            WHERE `itemID` = ?");
 
 $getItemDetailsQuery->bind_param("s", $ID);
 $getItemDetailsQuery->execute();
