@@ -10,7 +10,6 @@ class ItemDetails extends Component {
         let pathname = window.location.pathname;
         let itemID = pathname.slice(pathname.lastIndexOf("/")+1, pathname.length);
         let token = localStorage.getItem("token");
-        debugger;
         this.props.addToCartAction(itemID, token);
     };
  

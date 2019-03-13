@@ -2,7 +2,6 @@ import types from "./types";
 import axios from "axios";
 
 export const addToCartAction = (itemID, token) => dispatch =>{
-    debugger;
     console.log(itemID, token);
     try{
         axios({
