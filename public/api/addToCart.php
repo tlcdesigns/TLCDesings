@@ -7,9 +7,9 @@ header("Content-Type: application/json; charset=UTF-8");
 $postdata = file_get_contents("php://input");
 $jsondata = json_decode($postdata, true);
 $addToCartData = [];
-
 $itemID = $jsondata['itemID'];
 $token = $jsondata['token'];
+
 
 $getCustomerID = $conn->prepare("SELECT `accountID` FROM `loggedin`
                                       WHERE token = ?");
@@ -18,37 +18,49 @@ $getCustomerID->bind_param("s", $token);
 $getCustomerID->execute();
 $getCustomerID->store_result();
 $ID = [];
-$getCustomerID->bind_result($ID);
+$getCustomerID->bind_result($accountID);
 
-$getItemDetailsQuery = $conn->prepare("SELECT * FROM `products`
+while ($row = $getCustomerID->fetch()) {
+    $addToCartData['accountID'] = $accountID;
+}
+
+$itemsDetailsQuery = $conn->prepare("SELECT ID, itemID, title, price, status FROM `products`
                                             WHERE `itemID` = ?");
 
-$getItemDetailsQuery->bind_param("s", $itemID);
-$getItemDetailsQuery->execute();
+$itemsDetailsQuery->bind_param("i", $itemID);
+$itemsDetailsQuery->execute();
 
 $itemDetailsData = [];
-$getItemDetailsQuery->store_result();
-$getItemDetailsQuery->bind_result($productID, $itemsID, $title, $price, $status, $description, $image);
+$itemsDetailsQuery->store_result();
+$itemsDetailsQuery->bind_result($rowID, $itemsID, $title, $price, $status);
 $quantity = 1; //for now will need to get actual quantity later
 
+while ($row = $itemsDetailsQuery->fetch()) {
+    $addToCartData['customerID'] = $rowID;
+    $addToCartData['itemID'] = $itemsID;
+    $addToCartData['title'] = $title;
+    $addToCartData['price'] = $price;
+    $addToCartData['status'] = $status;
+}
 
-if($getCustomerID) {
+if($addToCartData) {
     $addItemToCustomerCartQuery = $conn->prepare("INSERT INTO `cart`
-                                                    (customerID, itemID, price, quantity)
-                                                    VALUES (?, ?, ?, ?)");
+                                                    (customerId, itemID, price, quantity, status)
+                                                    VALUES (?, ?, ?, ?, ?)");
 
-    $addItemToCustomerCartQuery->bind_param("ssss", $ID, $itemsID , $price, $quantity);
+    $addItemToCustomerCartQuery->bind_param("iiiis", $accountID, $itemsID , $price, $quantity, $status);
     $addItemToCustomerCartQuery->execute();
     $addItemToCustomerCartQuery->store_result();
     if($addItemToCustomerCartQuery) {
-        $addToCartData['success'] = true;
+        $addToCartData['message'] = "Item Added To Cart";
     } else {
-        $addToCartData['error'] = "Error Inserting Data To Cart Table";
+        $addToCartData['error'] = "Unable To Insert Item To Your Cart";
     }
 } else {
-    $addToCartData['error'] = "Unable To Get Customer ID";
+    $addToCartData['error'] = "Unable To Insert Item To Your Cart";
 }
 
+print(json_encode($addToCartData));
 
 
 ?>

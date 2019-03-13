@@ -5,6 +5,7 @@ const DEFAULT_STATE = {
 }
 
 export default (state=DEFAULT_STATE, action) =>{
+    debugger;
     switch(action.type){
         case types.ADDITEMTOCART:
             return {...state, cartConfirmation: action.data}
