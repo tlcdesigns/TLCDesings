@@ -54,10 +54,10 @@ if($addToCartData) {
     if($addItemToCustomerCartQuery) {
         $addToCartData['message'] = "Item Added To Cart";
     } else {
-        $addToCartData['error'] = "Unable To Insert Item To Your Cart";
+        $addToCartData['message'] = "Unable To Insert Item To Your Cart";
     }
 } else {
-    $addToCartData['error'] = "Unable To Insert Item To Your Cart";
+    $addToCartData['message'] = "Unable To Insert Item To Your Cart";
 }
 
 print(json_encode($addToCartData));

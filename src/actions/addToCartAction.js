@@ -12,9 +12,10 @@ export const addToCartAction = (itemID, token) => dispatch =>{
                 token: token
             }
         }).then((cartConfirmation)=>{
+            debugger;
             dispatch({
                 type: types.ADDITEMTOCART,
-                data: cartConfirmation.data
+                data: cartConfirmation.data.message
             })
         })
     }catch{
