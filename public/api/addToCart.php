@@ -62,9 +62,8 @@ if ($itemsDetailsQuery) {
         }
     }
 
-//    print_r( $addToCartData['itemQuantity']);
 
-    if ($itemQuantity > 0) {
+    if ($itemQuantity) { //need to update conditional
         print "MORE THAN 0";
 
         $updateCart = $conn->prepare("UPDATE `cart`
@@ -72,7 +71,7 @@ if ($itemsDetailsQuery) {
                                              WHERE itemID = ?");
 
         $newQuantity = [];
-        $newQuantity = $quantity . $itemQuantity;
+        $newQuantity = $quantity . 1;
         print_r($newQuantity);
 
         $updateCart->bind_param("ii", $newQuantity, $itemID);
@@ -103,7 +102,6 @@ if ($itemsDetailsQuery) {
 }
 
 print(json_encode($addToCartData));
-
 
 ?>
 
