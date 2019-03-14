@@ -43,24 +43,66 @@ while ($row = $itemsDetailsQuery->fetch()) {
     $addToCartData['status'] = $status;
 }
 
-if($addToCartData) {
-    $addItemToCustomerCartQuery = $conn->prepare("INSERT INTO `cart`
+if ($itemsDetailsQuery) {
+
+    $checkIfItemExistsInTable = $conn->prepare("SELECT quantity FROM `cart`
+                                                      WHERE `itemID` = ?");
+
+    $checkIfItemExistsInTable->bind_param("i", $itemID);
+    $checkIfItemExistsInTable->execute();
+    $checkIfItemExistsInTable->store_result();
+    $itemQuantity = [];
+    $checkIfItemExistsInTable->bind_result($itemQuantity);
+    if($checkIfItemExistsInTable) {
+        while ($row = $itemsDetailsQuery->fetch()) {
+            print "check query worked";
+            print $itemQuantity;
+            print $row;
+            $addToCartData['itemQuantity'] = $itemQuantity;
+        }
+    }
+
+
+    if ($itemQuantity) { //need to update conditional
+        print "MORE THAN 0";
+
+        $updateCart = $conn->prepare("UPDATE `cart`
+                                             SET quantity = ?
+                                             WHERE itemID = ?");
+
+        $newQuantity = [];
+        $newQuantity = $quantity . 1;
+        print_r($newQuantity);
+
+        $updateCart->bind_param("ii", $newQuantity, $itemID);
+        $updateCart->execute();
+        $updateCart->store_result();
+        if ($updateCart) {
+            $addToCartData['message'] = "Cart Updated";
+        } else {
+            $addToCartData['message'] = "Unable To Update Item In Your Cart";
+        }
+    } else {
+
+        $addItemToCustomerCartQuery = $conn->prepare("INSERT INTO `cart`
                                                     (customerId, itemID, price, quantity, status)
                                                     VALUES (?, ?, ?, ?, ?)");
 
-    $addItemToCustomerCartQuery->bind_param("iiiis", $accountID, $itemsID , $price, $quantity, $status);
-    $addItemToCustomerCartQuery->execute();
-    $addItemToCustomerCartQuery->store_result();
-    if($addItemToCustomerCartQuery) {
-        $addToCartData['message'] = "Item Added To Cart";
-    } else {
-        $addToCartData['error'] = "Unable To Insert Item To Your Cart";
+        $addItemToCustomerCartQuery->bind_param("iiiii", $accountID, $itemsID, $price, $quantity, $status);
+        $addItemToCustomerCartQuery->execute();
+        $addItemToCustomerCartQuery->store_result();
+        if ($addItemToCustomerCartQuery) {
+            $addToCartData['message'] = "Item Added To Cart";
+        } else {
+            $addToCartData['message'] = "Unable To Insert Item To Your Cart";
+        }
     }
 } else {
-    $addToCartData['error'] = "Unable To Insert Item To Your Cart";
+    $addToCartData['message'] = "Unable To Insert Item To Your Cart";
 }
 
 print(json_encode($addToCartData));
 
-
 ?>
+
+

@@ -6,7 +6,14 @@ import {addToCartAction} from "../../actions/addToCartAction"
 
 class ItemDetails extends Component {
 
+    state = {
+        buttonClicked: false,
+    }
+
     addToCart = () => {
+        this.setState({
+            buttonClicked: true
+        })
         let pathname = window.location.pathname;
         let itemID = pathname.slice(pathname.lastIndexOf("/")+1, pathname.length);
         let token = localStorage.getItem("token");
@@ -27,7 +34,7 @@ class ItemDetails extends Component {
             <Fragment>
                 <button onClick={this.addToCart} className={"checkoutBtn center btn"}>checkout</button>
                 <div>
-                    {this.props.addToCartConfirmation ? this.props.addToCartConfirmation: "" }
+                    {this.props.addToCartConfirmation && this.state.buttonClicked ? this.props.addToCartConfirmation: "" }
                 </div>
             </Fragment>
         )
