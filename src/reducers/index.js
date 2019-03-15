@@ -4,6 +4,7 @@ import loggedinReducer from "./logginReducer";
 import allProductsReducer from "./allProductsReducer"
 import itemDetailsReducer from "./itemDetailsReducer"
 import addToCartReducer from "./addToCartReducer";
+import getCartItemsReducer from "./getCartItemsReducer"
 
 
 const rootReducer = combineReducers({
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
     loggedinReducer,
     allProductsReducer,
     itemDetailsReducer,
-    addToCartReducer
+    addToCartReducer,
+    getCartItemsReducer,
 });
 
 export default rootReducer

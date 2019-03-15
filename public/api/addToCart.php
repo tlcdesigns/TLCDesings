@@ -46,33 +46,27 @@ while ($row = $itemsDetailsQuery->fetch()) {
 if ($itemsDetailsQuery) {
 
     $checkIfItemExistsInTable = $conn->prepare("SELECT quantity FROM `cart`
-                                                      WHERE `itemID` = ?");
+                                                      WHERE (`itemID` = ?) AND (`customerID` = ?)");
 
-    $checkIfItemExistsInTable->bind_param("i", $itemID);
+    $checkIfItemExistsInTable->bind_param("ii", $itemID,$accountID);
     $checkIfItemExistsInTable->execute();
     $checkIfItemExistsInTable->store_result();
     $itemQuantity = [];
     $checkIfItemExistsInTable->bind_result($itemQuantity);
     if($checkIfItemExistsInTable) {
-        while ($row = $itemsDetailsQuery->fetch()) {
-            print "check query worked";
-            print $itemQuantity;
-            print $row;
+        while ($row = $checkIfItemExistsInTable->fetch()) {
             $addToCartData['itemQuantity'] = $itemQuantity;
         }
     }
 
 
-    if ($itemQuantity) { //need to update conditional
-        print "MORE THAN 0";
-
+    if ($checkIfItemExistsInTable->num_rows !== 0) { //need to update conditional
         $updateCart = $conn->prepare("UPDATE `cart`
                                              SET quantity = ?
                                              WHERE itemID = ?");
 
         $newQuantity = [];
-        $newQuantity = $quantity . 1;
-        print_r($newQuantity);
+        $newQuantity = 10;
 
         $updateCart->bind_param("ii", $newQuantity, $itemID);
         $updateCart->execute();
