@@ -1,15 +1,28 @@
 import React, {Component, Fragment} from "react";
-import dummy from '../bummyData/dummy';
+import {connect} from "react-redux";
+// import dummy from '../bummyData/dummy';
+import {getCartItemsAction} from "../../actions/getCartItemsAction";
 import MakeCartItem from "./makeItemsCart";
+import getCartItemsReducer from "../../reducers/getCartItemsReducer";
 
 
 class Cart extends Component {
+
+    componentDidMount = () => {
+        let token = localStorage.getItem("token");
+        this.props.getCartItemsAction(token);
+    }
+
+
     render() {
-        const listings = dummy.map((item,index)=>{
-            return (
-                <MakeCartItem key={index} about={item}/>
-            )
-        });
+        if(this.props.cartItems) {
+            debugger;
+            var listings = this.props.cartItems.map((item, index) => {
+                return (
+                    <MakeCartItem key={index} about={item}/>
+                )
+            });
+        }
         return (
             <Fragment>
                 <div className={"pageContainer row"}>
@@ -56,4 +69,13 @@ class Cart extends Component {
     }
 }
 
-export default Cart
+function mapStateToProps(state) {
+    return {
+        cartItems: state.getCartItemsReducer.cartItems
+    }
+}
+
+
+export default connect(mapStateToProps, {
+    getCartItemsAction
+})(Cart)
