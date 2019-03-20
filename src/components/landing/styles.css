@@ -182,6 +182,10 @@ select {
 
 }
 
+.error {
+    min-height: 20px;
+}
+
 .countryContainer {
     display: block;
 }
