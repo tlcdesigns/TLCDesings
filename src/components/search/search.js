@@ -20,7 +20,17 @@ class Search extends Component {
         }
         return (
             <div className={"row"}>
-                <div className={"col s2 filterContainer"}>filter section</div>
+                <div className={"col s2 filterContainer"}>filter section
+                    <div>
+                        {/* <label htmlFor="priceMin">Price</label> */}
+                        <p>Price</p>
+                        <input id="priceMin" className="col s6" placeholder="min" type="text"/>
+                        <input className="col s6" placeholder="max" type="text"/>
+                    </div>
+                    <div>
+                        <input placeholder="Search" type="text"/>
+                    </div>
+                </div>
                 <div className={"col listingContainer"}>{listings}</div> {/*add media queries to this dont add grid system*/}
             </div>
         )
