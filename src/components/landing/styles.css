@@ -169,14 +169,22 @@
     border: 1px solid blue;
 }
 
+select {
+    display: block !important;
+}
 
+.infoContainer {
+    min-height: 75%;
+    border: 2px solid black;
+}
 
+.shippingContainer {
 
-/*@media only screen and (max-width: 1201px) and (min-width: 601px){*/
-    /*.row col.listingContainer {*/
-        /*width: 100% !important;*/
-    /*}*/
-/*}*/
+}
+
+.countryContainer {
+    display: block;
+}
 
 @media only screen and (max-width: 4000px){
     .listingContainer {
