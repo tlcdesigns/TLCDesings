@@ -190,6 +190,23 @@ select {
     display: block;
 }
 
+.cardContainer {
+    min-height: 75%;
+    border: 1px solid lightgrey;
+}
+
+.containerHeader {
+    vertical-align: center;
+    height: 50px;
+    padding: 0 .75rem;
+    font-size: 22px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.cardSpan {
+    vertical-align: -17%;
+}
+
 @media only screen and (max-width: 4000px){
     .listingContainer {
         width: 83.333333333333%;
