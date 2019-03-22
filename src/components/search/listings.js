@@ -5,7 +5,6 @@ import topaz from '../search/images/topaz_necklace.jpg';
 export default props => {
     const {title, description, price, ID} = props.about;
     return (
-
         <Link to={`/itemDetails/${ID}`}>
             <div className="searchContainer col l3 m3 s6">
                 <div className="card">

@@ -8,6 +8,8 @@ export default {
     "ADDITEMTOCART": "add_item_to_cart",
     "ADDITEMTOCARTERROR": "add_item_to_cart_error",
     "GETCARTITEMS": "get_cart_items",
-    "GETCARTITEMSERROR": "get_cart_items_error"
+    "GETCARTITEMSERROR": "get_cart_items_error",
+    "GETUSERID": "get_user_id",
+    "GETUSERIDERROR": "get_user_id_error",
 
 }
