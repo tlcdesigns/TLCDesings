@@ -3,7 +3,8 @@ import {connect} from "react-redux";
 // import dummy from '../bummyData/dummy';
 import {getCartItemsAction} from "../../actions/getCartItemsAction";
 import MakeCartItem from "./makeItemsCart";
-import getCartItemsReducer from "../../reducers/getCartItemsReducer";
+import {getUserIDAction} from "../../actions/getUserIDAction";
+import getUserIDReducer from "../../reducers/getUserIDReducer";
 
 
 class Cart extends Component {
@@ -11,17 +12,21 @@ class Cart extends Component {
     componentDidMount = () => {
         let token = localStorage.getItem("token");
         this.props.getCartItemsAction(token);
+        this.props.getUserIDAction(token);
+    }
+
+    sendToBuyingPage = () => {
+        this.props.history.push(`/buying/${this.props.userID}`);
     }
 
 
     render() {
         if(this.props.cartItems) {
-            debugger;
-            var listings = this.props.cartItems.map((item, index) => {
-                return (
-                    <MakeCartItem key={index} about={item}/>
-                )
-            });
+            // var listings = this.props.cartItems.map((item, index) => {
+            //     return (
+            //         <MakeCartItem key={index} about={item}/>
+            //     )
+            // });
         }
         return (
             <Fragment>
@@ -33,7 +38,7 @@ class Cart extends Component {
                             <div className="header col s2">Quantity</div>
                             <div className="header total center col s2">Total</div>
                         </div>
-                        <div className="itemCards">{listings}</div>
+                        <div className="itemCards">{}</div>
                     </div>
                     <div className="col paySection s4">
                         <div className={"linkPayPal"}>
@@ -58,7 +63,7 @@ class Cart extends Component {
                             <div className="orderTotal col s9">Order Total:</div>
                             <div className="col price s3">price</div>
                             <div className={"center"}>
-                                <button className={"checkoutBtn center btn"}>checkout</button>
+                                <button onClick={this.sendToBuyingPage} className={"checkoutBtn center btn"}>checkout</button>
                             </div>
                         </div>
 
@@ -71,11 +76,13 @@ class Cart extends Component {
 
 function mapStateToProps(state) {
     return {
-        cartItems: state.getCartItemsReducer.cartItems
+        cartItems: state.getCartItemsReducer.cartItems,
+        userID: state.getUserIDReducer.userID
     }
 }
 
 
 export default connect(mapStateToProps, {
-    getCartItemsAction
+    getCartItemsAction,
+    getUserIDAction
 })(Cart)

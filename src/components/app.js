@@ -24,7 +24,7 @@ const App = () => (
         <Nav/>
         <div className={"container row"}>
             {/*<Route exact path={"/"} component={Landing}/>*/}
-            <Route path={"/Buying"} component={Auth(Buying)}/>
+            <Route path={"/Buying/:userID"} component={Auth(Buying)}/>
             <Route path={"/itemDetails/:itemID"} component={ItemDetails}/>
             <Route path={"/Cart"} component={Auth(Cart)}/> {/*:userID*/}
             <Route path={"/UserProfile/:userID"} component={Auth(Profile)}/>
@@ -32,7 +32,7 @@ const App = () => (
             <Route path={"/SignUp"} component={SignUp}/>
         </div>
         <div className={"row"}>
-            <Route path={"/Search"} component={Search}/>
+            <Route exact path={"/"} component={Search}/>
         </div>
         
     </div>
