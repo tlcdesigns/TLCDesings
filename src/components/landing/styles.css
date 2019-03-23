@@ -207,13 +207,14 @@ select {
     vertical-align: -17%;
 }
 
-/*.cardMetaData {*/
-    /*border-bottom: 2px solid black;*/
-/*}*/
 
 .errCode {
     margin-bottom: 5px;
     margin-top: 5px;
+}
+
+.linkDiv {
+    padding: 10px 0 10px 0 !important;
 }
 
 .border {
