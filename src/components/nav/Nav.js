@@ -19,14 +19,14 @@ class Nav extends Component {
             // },
             {
                 text: "Search",
-                to: "/Search"
+                to: "/"
             }
         ],
         Auth: [
-            {
-                text: "Buying",
-                to: "/buying"
-            },
+            // {
+            //     text: "Buying",
+            //     to: "/buying"
+            // },
             {
                 text: "Cart",
                 to: "/Cart"

@@ -5,7 +5,8 @@ import {reduxForm} from 'redux-form';
 class Buying extends Component {
     state = {
         value: "United States",
-        firstStep: true
+        firstStep: true,
+        showInput: false
     }
 
     handleChange = (e) => {
@@ -19,6 +20,12 @@ class Buying extends Component {
             firstStep: false
         })
     };
+
+    showInput = () => {
+        this.setState({
+            showInput: !this.state.showInput
+        })
+    }
 
     render() {
         const {handleSubmit} = this.props;
@@ -44,7 +51,7 @@ class Buying extends Component {
                                     </div>
 
                                     <div className={"fullNameContainer offset-s1 s10 col"}>
-                                        <label htmlFor={"fullNameInput"} className="fullName">fullName</label>
+                                        <label htmlFor={"fullNameInput"} className="fullName">Full Name</label>
                                         <input name={"fullNameInput"} id={"fullNameInput"} type="text"/>
                                         <p className={"error"}></p>
                                     </div>
@@ -92,22 +99,22 @@ class Buying extends Component {
 
                     <div className={this.state.firstStep ? "hide" : ""}>
                         <h3>Choose a payment method</h3>
-                        <div>You will not be charged until you review this order on the next page.</div>
+                        <div>Order Will Be Sent And The Purchase Will Be Finalized Once Submitted.</div>
                         <div className="cardContainer row">
                             <div className={"containerHeader"}>
                                 <span className={"cardSpan"}>Credit Card</span>
                             </div>
-                            <div className={"nameOnCardContainer col s10"}>
+                            <div className={"nameOnCardContainer offset-s1 s10 col"}>
                                 <label htmlFor="cardNameInput">Name On Card</label>
                                 <input id={"cardNameInput"} type="text"/>
                                 <p className="error"></p>
                             </div>
-                            <div className={"col s10 CardNumberContainer"}>
+                            <div className={"offset-s1 s10 col CardNumberContainer"}>
                                 <label htmlFor="cardNumberInput">Card Number</label>
                                 <input id={"cardNumberInput"} type="text"/>
                                 <p className="error"></p>
                             </div>
-                            <div className={"cardMetaData s10 col"}>
+                            <div className={"cardMetaData offset-s1 s10 col"}>
                                 <div className="s2 col month">
                                     <select name="monthDropDown" id="monthDropDown">
                                         <option value="1">1</option>
@@ -149,15 +156,25 @@ class Buying extends Component {
                                         <option value="2039">2039</option>
                                     </select>
                                 </div>
-                                <div className="securityCode col s4">
+                                <div className="securityCode offset-s2 col s4">
                                     <label htmlFor="codeInput">Security Code</label>
                                     <input id={"codeInput"} type="password"/>
-                                    <p className="error"></p>
+                                    <p className="errCode error"></p>
                                 </div>
                             </div>
-                            <div className={"center col s10"}>
-                                <button className={"btn"}>Review Your Order</button>
+                            <div className="border col s12"></div>
+                            <div className="center redeem">
+                                <div onClick={this.showInput} className="linkDiv col s12">Click Here To Redeem Any Gift
+                                    Cards Or Offer Codes
+                                </div>
+                                <div className={this.state.showInput ? "col s12" : "col s12 hide"}>
+                                    <input placeholder={"Enter Code"} type="text" className="col s9"/>
+                                    <button className={"btn"}>Apply</button>
+                                </div>
                             </div>
+                        </div>
+                        <div className={"center col s12"}>
+                            <button className={"btn"}>Place Your Order</button>
                         </div>
                     </div>
                 </div>
@@ -168,8 +185,33 @@ class Buying extends Component {
     }
 }
 
-function validate() {
+function validate({fullNameInput, addressInput, aptInput, zipInput, cityInput, stateInput}) {
+    debugger;
     const errors = {};
+
+    if (!fullNameInput) {
+        errors.fullNameInput = "Inavlaid whatever"
+    }
+
+    if (!addressInput) {
+        errors.addressInput = "Inavlaid whatever"
+    }
+
+    if (!aptInput) {
+        errors.aptInput = "Inavlaid whatever"
+    }
+
+    if (!zipInput) {
+        errors.zipInput = "Inavlaid whatever"
+    }
+
+    if (!cityInput) {
+        errors.cityInput = "Inavlaid whatever"
+    }
+    if (!stateInput) {
+        errors.stateInput = "Inavlaid whatever"
+    }
+
 
     return (
         errors
