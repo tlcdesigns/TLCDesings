@@ -5,7 +5,8 @@ import {reduxForm} from 'redux-form';
 class Buying extends Component {
     state = {
         value: "United States",
-        firstStep: true
+        firstStep: true,
+        showInput: false
     }
 
     handleChange = (e) => {
@@ -19,6 +20,12 @@ class Buying extends Component {
             firstStep: false
         })
     };
+
+    showInput = () => {
+        this.setState({
+            showInput: true
+        })
+    }
 
     render() {
         const {handleSubmit} = this.props;
@@ -44,7 +51,7 @@ class Buying extends Component {
                                     </div>
 
                                     <div className={"fullNameContainer offset-s1 s10 col"}>
-                                        <label htmlFor={"fullNameInput"} className="fullName">fullName</label>
+                                        <label htmlFor={"fullNameInput"} className="fullName">Full Name</label>
                                         <input name={"fullNameInput"} id={"fullNameInput"} type="text"/>
                                         <p className={"error"}></p>
                                     </div>
@@ -152,7 +159,15 @@ class Buying extends Component {
                                 <div className="securityCode col s4">
                                     <label htmlFor="codeInput">Security Code</label>
                                     <input id={"codeInput"} type="password"/>
-                                    <p className="error"></p>
+                                    <p className="errCode error"></p>
+                                </div>
+                            </div>
+                            <div className="border col s12"></div>
+                            <div className="redeem">
+                                <div onClick={this.showInput} className="linkDiv col s6">Redeem Any Gift Cards Or Offer Codes</div>
+                                <div className={this.state.showInput ? "col s12" : "col s12 hide"}>
+                                    <input placeholder={"Enter Code"} type="text" className="col s9"/>
+                                    <button className={"btn"}>Apply</button>
                                 </div>
                             </div>
                             <div className={"center col s10"}>

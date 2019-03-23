@@ -207,6 +207,23 @@ select {
     vertical-align: -17%;
 }
 
+/*.cardMetaData {*/
+    /*border-bottom: 2px solid black;*/
+/*}*/
+
+.errCode {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.border {
+    border-top: 1px solid black;
+}
+
+.linkDiv:hover {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 4000px){
     .listingContainer {
         width: 83.333333333333%;
