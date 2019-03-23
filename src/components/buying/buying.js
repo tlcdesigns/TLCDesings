@@ -164,7 +164,9 @@ class Buying extends Component {
                             </div>
                             <div className="border col s12"></div>
                             <div className="center redeem">
-                                <div onClick={this.showInput} className="linkDiv col s12">Click Here To Redeem Any Gift Cards Or Offer Codes</div>
+                                <div onClick={this.showInput} className="linkDiv col s12">Click Here To Redeem Any Gift
+                                    Cards Or Offer Codes
+                                </div>
                                 <div className={this.state.showInput ? "col s12" : "col s12 hide"}>
                                     <input placeholder={"Enter Code"} type="text" className="col s9"/>
                                     <button className={"btn"}>Apply</button>
@@ -183,8 +185,33 @@ class Buying extends Component {
     }
 }
 
-function validate() {
+function validate({fullNameInput, addressInput, aptInput, zipInput, cityInput, stateInput}) {
+    debugger;
     const errors = {};
+
+    if (!fullNameInput) {
+        errors.fullNameInput = "Inavlaid whatever"
+    }
+
+    if (!addressInput) {
+        errors.addressInput = "Inavlaid whatever"
+    }
+
+    if (!aptInput) {
+        errors.aptInput = "Inavlaid whatever"
+    }
+
+    if (!zipInput) {
+        errors.zipInput = "Inavlaid whatever"
+    }
+
+    if (!cityInput) {
+        errors.cityInput = "Inavlaid whatever"
+    }
+    if (!stateInput) {
+        errors.stateInput = "Inavlaid whatever"
+    }
+
 
     return (
         errors
