@@ -7,7 +7,6 @@ header("Content-Type: application/json; charset=UTF-8");
 $postdata = file_get_contents("php://input");
 $jsondata = json_decode($postdata, true);
 $token = $jsondata['token'];
-$allCArtItems = [];
 
 $getIDFromTokenQuery = $conn->prepare("SELECT `accountID` FROM `loggedin`
                                       WHERE token = ?");
@@ -18,7 +17,7 @@ $getIDFromTokenQuery->store_result();
 $accountID = [];
 $getIDFromTokenQuery->bind_result($accountID);
 while ($row = $getIDFromTokenQuery->fetch()) {
-    $allCArtItems['accountID'] = $accountID;
+//    $allCArtItems['accountID'] = $accountID;
 }
 
 $getCartItems = $conn->prepare("SELECT itemID, price, quantity FROM `cart`
@@ -32,25 +31,33 @@ $price = [];
 $quantity = [];
 $getCartItems->bind_result($itemID,$price,$quantity);
 
-print_r($getCartItems);
+//print_r($getCartItems);
 
-if($getCartItems) {
-    if($getCartItems->num_rows !== 0) {
-        while ($row = $getCartItems->fetch()) {
-            $data = [];
-            $data[] = $row;
-        }
-        $allCArtItems['cartItems'] = $data;
-    } else {
-        $allCArtItems['message'] = "No Items In Cart";
-    }
-} else {
-    $allCArtItems['message'] = "Unable To Get Cart Items";
+//if($getCartItems) {
+//    while($row = $getCartItems->fetch()) {
+//        $allCArtItems['itemID'] = $itemID;
+//        $allCArtItems['price'] = $price;
+//        $allCArtItems['quantity'] = $quantity;
+//    }
+//}
+
+//if($getCartItems) {
+//    while($row = $getCartItems->fetch()) {
+//        printf("%s %s %s\n", $itemID,$price,$quantity);
+//    }
+//}
+$i = 0;
+while ($getCartItems->fetch()) {
+    $i++;
+    $name='row'.$i;
+    $$name = array($itemID,$price,$quantity);
+    $allCArtItems["$name"]['itemID'] = $$name[0];
+    $allCArtItems["$name"]['price'] = $$name[1];
+    $allCArtItems["$name"]['quantity'] = $$name[2];
+    $allCArtItems["$name"]['accountID'] = $accountID;
 }
 
-
 print_r(json_encode($allCArtItems));
-
 
 
 ?>

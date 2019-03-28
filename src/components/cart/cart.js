@@ -22,6 +22,7 @@ class Cart extends Component {
 
     render() {
         if(this.props.cartItems) {
+            debugger;
             // var listings = this.props.cartItems.map((item, index) => {
             //     return (
             //         <MakeCartItem key={index} about={item}/>
