@@ -23,11 +23,11 @@ class Cart extends Component {
     render() {
         if(this.props.cartItems) {
             debugger;
-            // var listings = this.props.cartItems.map((item, index) => {
-            //     return (
-            //         <MakeCartItem key={index} about={item}/>
-            //     )
-            // });
+            var listings = this.props.cartItems.map((item, index) => {
+                return (
+                    <MakeCartItem key={index} about={item}/>
+                )
+            });
         }
         return (
             <Fragment>
@@ -39,7 +39,7 @@ class Cart extends Component {
                             <div className="header col s2">Quantity</div>
                             <div className="header total center col s2">Total</div>
                         </div>
-                        <div className="itemCards">{}</div>
+                        <div className="itemCards">{listings}</div>
                     </div>
                     <div className="col paySection s4">
                         <div className={"linkPayPal"}>
