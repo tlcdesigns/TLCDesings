@@ -20,7 +20,7 @@ while ($row = $getIDFromTokenQuery->fetch()) {
     $allCArtItems['accountID'] = $accountID;
 }
 
-$getCartItems = $conn->prepare("SELECT c.itemID, c.price, c.quantity, p.description FROM `cart` AS c
+$getCartItems = $conn->prepare("SELECT c.itemID, c.price, c.quantity, p.description, p.image FROM `cart` AS c
                                       JOIN `products` AS p ON c.itemID = p.itemID
                                       WHERE c.customerID = ?");
 
@@ -31,7 +31,8 @@ $getCartItems->store_result();
 $itemID = [];
 $price = [];
 $quantity = [];
-$getCartItems->bind_result($itemID,$price,$quantity, $description);
+$image = [];
+$getCartItems->bind_result($itemID,$price,$quantity, $description, $image);
 
 //print_r($getCartItems);
 
@@ -60,7 +61,7 @@ $getCartItems->bind_result($itemID,$price,$quantity, $description);
 //}
 
 while($getCartItems->fetch()) {
-    $outArr[] = ['itemID' => $itemID, 'price' => $price, 'quantity' => $quantity, 'description' => $description];
+    $outArr[] = ['itemID' => $itemID, 'price' => $price, 'quantity' => $quantity, 'description' => $description, 'image' => $image];
 }
 print_r(json_encode($outArr));
 

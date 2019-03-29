@@ -1,14 +1,15 @@
 import React, {Fragment} from "react";
+import topaz from '../search/images/topaz_necklace.jpg';
+
 
 export default props => {
-    debugger;
     const {description, image, price, quantity} = props.about;
     return (
         <div id="listItemContainer" className="listItemContainer col s12 m12 l12">
             <div className='listItem'>
                 <div className='itemImageContainer col s12'>
                     <div className={"col imgAndDesc s6"}>
-                        <img className='col itemImage' src={image}/>
+                        <img className='col itemImage' src={topaz}/>
                         <div className={"full"}>{description}</div>
                     </div>
                     <div className={"detailsContainer"}>

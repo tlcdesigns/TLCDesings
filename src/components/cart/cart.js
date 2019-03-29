@@ -4,8 +4,6 @@ import {connect} from "react-redux";
 import {getCartItemsAction} from "../../actions/getCartItemsAction";
 import MakeCartItem from "./makeItemsCart";
 import {getUserIDAction} from "../../actions/getUserIDAction";
-import getUserIDReducer from "../../reducers/getUserIDReducer";
-
 
 class Cart extends Component {
 
@@ -22,7 +20,6 @@ class Cart extends Component {
 
     render() {
         if(this.props.cartItems) {
-            debugger;
             var listings = this.props.cartItems.map((item, index) => {
                 return (
                     <MakeCartItem key={index} about={item}/>
@@ -34,7 +31,7 @@ class Cart extends Component {
                 <div className={"pageContainer row"}>
                     <div className={"col itemsContainer s8 "}>
                         <div className="infoHeader col s12">
-                            <div className="items col s6">Items(10 items)</div>
+                            <div className="items col s6">{this.props.cartItems ?  `Items(${this.props.cartItems.length} items)` : 'Items(0 items)'}</div>
                             <div className="header col s2">Price</div>
                             <div className="header col s2">Quantity</div>
                             <div className="header total center col s2">Total</div>

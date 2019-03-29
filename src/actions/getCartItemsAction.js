@@ -10,7 +10,6 @@ export const getCartItemsAction = (token) => dispatch => {
                 token: token
             }
         }).then((cartItems) => {
-            debugger;
             dispatch({
                 type: types.GETCARTITEMS,
                 payload: cartItems.data
