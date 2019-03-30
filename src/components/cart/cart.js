@@ -7,6 +7,11 @@ import {getUserIDAction} from "../../actions/getUserIDAction";
 
 class Cart extends Component {
 
+    state = {
+        subtotal: 0,
+        tax: 0,
+    }
+
     componentDidMount = () => {
         let token = localStorage.getItem("token");
         this.props.getCartItemsAction(token);
@@ -17,12 +22,24 @@ class Cart extends Component {
         this.props.history.push(`/buying/${this.props.userID}`);
     }
 
+    updateSubtotal = (total) => {
+        this.setState({
+            subtotal: this.state.subtotal += total
+        })
+    };
+
+    getTax = () => {
+        this.setState({
+            tax: this.state.subtotal * .0025
+        })
+    }
+
 
     render() {
         if(this.props.cartItems) {
             var listings = this.props.cartItems.map((item, index) => {
                 return (
-                    <MakeCartItem key={index} about={item}/>
+                    <MakeCartItem updateTax={this.getTax} updateFunction={this.updateSubtotal} key={index} about={item}/>
                 )
             });
         }
@@ -31,7 +48,7 @@ class Cart extends Component {
                 <div className={"pageContainer row"}>
                     <div className={"col itemsContainer s8 "}>
                         <div className="infoHeader col s12">
-                            <div className="items col s6">{this.props.cartItems ?  `Items(${this.props.cartItems.length} items)` : 'Items(0 items)'}</div>
+                            <div className="items col s6">{this.props.cartItems ?  `Items(${this.props.cartItems.length})` : 'Items(0)'}</div>
                             <div className="header col s2">Price</div>
                             <div className="header col s2">Quantity</div>
                             <div className="header total center col s2">Total</div>
@@ -46,11 +63,11 @@ class Cart extends Component {
                             <div className="orderSummary">Order Summary</div>
                             <div className={"subTotal"}>
                                 <div className="subTotalText col s10 m9">Subtotal (10 items)</div>
-                                <div className="price col s3">price</div>
+                                <div className="price col s3">{"$" + this.state.subtotal.toFixed(2)}</div>
                             </div>
                             <div className={"EstimatedShipping"}>
                                 <div className="EstimatedShippingText col s10 m9">Estimated Shipping</div>
-                                <div className="price col s3">price</div>
+                                <div className="price col s3">{"$" + this.state.tax.toFixed(2)}</div>
                             </div>
                             <div className={"EstimatedTax"}>
                                 <div className="EstimatedTaxText col s10 m9">Estimated Tax</div>
