@@ -22,6 +22,7 @@ class Buying extends Component {
     };
 
     showInput = () => {
+        debugger;
         this.setState({
             showInput: !this.state.showInput
         })

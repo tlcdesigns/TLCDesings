@@ -245,11 +245,15 @@ select {
     .items {
         width: 40% !important;
     }
+
+    .pricePosition {
+        transform: translate(-42%);
+    }
 }
 
 @media only screen and (max-width: 670px) {
     .designs {
-        font-size: 35px;
+        font-size: 33px;
     }
 
     .header, .infoHeader, .items {
@@ -268,5 +272,36 @@ select {
     .total {
         position: relative;
         left: 15px !important;
+    }
+
+    .totalCard {
+        position: relative;
+        font-size: 10px;
+        left: -2px !important;
+
+    }
+
+    .quantity {
+        font-size: 10px;
+    }
+
+    .pricePosition {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 785px) {
+    .itemImage {
+
+    }
+
+    .full {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 870px) {
+    .imgAndDesc {
+        color: white;
     }
 }
