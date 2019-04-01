@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from "react";
 import {connect} from "react-redux";
-// import dummy from '../bummyData/dummy';
 import {getCartItemsAction} from "../../actions/getCartItemsAction";
 import MakeCartItem from "./makeItemsCart";
 import {getUserIDAction} from "../../actions/getUserIDAction";
@@ -10,6 +9,8 @@ class Cart extends Component {
     state = {
         subtotal: 0,
         tax: 0,
+        shippingCost: 0,
+        total : 0
     }
 
     componentDidMount = () => {
@@ -28,18 +29,28 @@ class Cart extends Component {
         })
     };
 
-    getTax = () => {
+    // getTax = () => {
+    //     this.setState({
+    //         tax: this.state.subtotal * .0025
+    //     });
+    // }
+
+    updateTotalOrder = () => {
+        debugger;
+        const {subtotal, tax, shippingCost} = this.state;
+        let totalCost = 0;
+        totalCost = (subtotal + (subtotal * .0025)) + shippingCost;
         this.setState({
-            tax: this.state.subtotal * .0025
-        })
-    }
+            total: totalCost
+        });
+    };
 
 
     render() {
         if(this.props.cartItems) {
             var listings = this.props.cartItems.map((item, index) => {
                 return (
-                    <MakeCartItem updateTax={this.getTax} updateFunction={this.updateSubtotal} key={index} about={item}/>
+                    <MakeCartItem updateTotal={this.updateTotalOrder} updateTax={this.getTax} updateFunction={this.updateSubtotal} key={index} about={item}/>
                 )
             });
         }
@@ -67,16 +78,16 @@ class Cart extends Component {
                             </div>
                             <div className={"EstimatedShipping"}>
                                 <div className="EstimatedShippingText col s10 m9">Estimated Shipping</div>
-                                <div className="price col s3">{"$" + this.state.tax.toFixed(2)}</div>
+                                <div className="price col s3">{"$" + this.state.shippingCost.toFixed(2)}</div>
                             </div>
                             <div className={"EstimatedTax"}>
                                 <div className="EstimatedTaxText col s10 m9">Estimated Tax</div>
-                                <div className="price col s2">price</div>
+                                <div className="price col s2">{"$" + (this.state.subtotal * .0025).toFixed(2)}</div>
                             </div>
                         </div>
                         <div className="orderTotalBtn">
                             <div className="orderTotal col s9">Order Total:</div>
-                            <div className="col price s3">price</div>
+                            <div className="col price s3">{"$" + this.state.total.toFixed(2)}</div>
                             <div className={"center"}>
                                 <button onClick={this.sendToBuyingPage} className={"checkoutBtn center btn"}>checkout</button>
                             </div>
