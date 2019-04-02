@@ -2,8 +2,11 @@ import React, {Component, Fragment} from "react";
 import {connect} from "react-redux";
 import {Field} from "redux-form";
 import Forms from "../helpers/forms";
+import CarouselItem from './carousel-item';
 import {getItemDetails} from "../../actions/getItemDetails"
 import {addToCartAction} from "../../actions/addToCartAction"
+import topaz from '../search/images/topaz_necklace.jpg';
+
 
 
 class ItemDetails extends Component {
@@ -15,11 +18,13 @@ class ItemDetails extends Component {
     addToCart = () => {
         this.setState({
             buttonClicked: true
-        })
+        });
         let pathname = window.location.pathname;
         let itemID = pathname.slice(pathname.lastIndexOf("/") + 1, pathname.length);
         let token = localStorage.getItem("token");
-        this.props.addToCartAction(itemID, token);
+        debugger;
+        let quantity = this.quantity.value
+        this.props.addToCartAction(itemID, token, quantity);
     };
 
     componentDidMount = () => {
@@ -35,7 +40,15 @@ class ItemDetails extends Component {
         return (
             <Fragment>
                 <div className={"pageContainer row"}>
+                    <div className="col s7 carousel" id="imageContainer">
+                        <img id="imageBackground" style={{display: 'block'}}/>
 
+                        <img className="bookLoading" style={{display: 'none'}}/>
+                        <a className="carousel-item responsive-img" id="book-item" href="#one!">
+                            <img src={topaz}/>
+                        </a>
+                        <CarouselItem images={this.props.images}/>
+                    </div>
 
                     <div className={"buyingContainer  col s5"}>
                         <div className={"starCount"}>stars (amount)</div>
@@ -56,7 +69,7 @@ class ItemDetails extends Component {
                         <div className={"col s12 rowContainer"}>
                             <div className={"col 3 quantityContainer"}>
                                 <label htmlFor="quantityDropDown">Quantity</label>
-                                <select name="quantityDropDown" id="quantityDropDown">
+                                <select ref={e => this.quantity = e} name="quantityDropDown" id="quantityDropDown">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>

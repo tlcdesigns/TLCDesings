@@ -118,6 +118,31 @@
     color: white !important;
 }
 
+#imageContainer {
+    min-height: 80% !important;
+    background-color: rgb(247, 247, 247);
+
+}
+
+#imageBackground {
+    background-image:
+        linear-gradient(rgba(34, 0, 34, 0.589),rgba(92, 0, 92, 0.767)),
+        url('../search/images/headernew.jpeg');
+    height: 100%;
+    width: 100%;
+}
+
+#book-item img {
+    position: relative;
+    left: 15%;
+    top: 5%;
+    height: 90%;
+    width: 70%;
+    border: 1px solid black;
+    /* box-shadow: 0px 5px 30px 10px rgba(230, 196, 0, 0.658); */
+    box-shadow: 0px 5px 30px 10px rgba(255, 255, 255, 0.836);
+}
+
 @media only screen and (max-width: 850px) {
     .subTotalText, .EstimatedShippingText, .EstimatedTaxText, .orderTotal, .price {
         font-size: 12px;
@@ -270,6 +295,10 @@ select {
     }
 }
 
+.subTotalText, .price, .EstimatedShippingText, .EstimatedTaxText, .orderTotal {
+    font-weight: 800;
+}
+
 @media only screen and (max-width: 732px) {
     .items {
         width: 40% !important;
@@ -277,6 +306,10 @@ select {
 
     .pricePosition {
         transform: translate(-42%);
+    }
+
+    .checkoutBtn {
+        font-size: 8px !important;
     }
 }
 

@@ -9,6 +9,7 @@ $jsondata = json_decode($postdata, true);
 $addToCartData = [];
 $itemID = $jsondata['itemID'];
 $token = $jsondata['token'];
+$quantity = $jsondata['quantity'];
 
 
 $getCustomerID = $conn->prepare("SELECT `accountID` FROM `loggedin`
@@ -33,7 +34,6 @@ $itemsDetailsQuery->execute();
 $itemDetailsData = [];
 $itemsDetailsQuery->store_result();
 $itemsDetailsQuery->bind_result($rowID, $itemsID, $title, $price, $status);
-$quantity = 1; //for now will need to get actual quantity later
 
 while ($row = $itemsDetailsQuery->fetch()) {
     $addToCartData['customerID'] = $rowID;
@@ -65,9 +65,7 @@ if ($itemsDetailsQuery) {
                                              SET quantity = ?
                                              WHERE itemID = ?");
 
-        $newQuantity = [];
-        $newQuantity = 10;
-
+        $newQuantity = $itemQuantity + $quantity;
         $updateCart->bind_param("ii", $newQuantity, $itemID);
         $updateCart->execute();
         $updateCart->store_result();
