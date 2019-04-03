@@ -9,10 +9,10 @@ import temp from "../../assets/images/temp.jpg";
 class Nav extends Component {
     state = {
         common: [
-            {
-                text: "TLC Designs",
-                to: "/"
-            },
+            // {
+            //     text: "TLC Designs",
+            //     to: "/"
+            // },
             // {
             //     text: "Landing",
             //     to: "/"

@@ -295,8 +295,25 @@ select {
     }
 }
 
+.sidenav li > a {
+    background-color: white;
+}
+
+.sidenav li > a:hover {
+    background-color: #00D2BE !important;
+}
+
 .subTotalText, .price, .EstimatedShippingText, .EstimatedTaxText, .orderTotal {
     font-weight: 800;
+}
+
+.itemInCartContainer {
+    height: auto;
+
+}
+
+.cartText {
+    font-size: 8;
 }
 
 @media only screen and (max-width: 732px) {
