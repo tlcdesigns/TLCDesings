@@ -12,14 +12,14 @@ class SignIn extends Component {
 
     componentDidMount = () => {
         if(this.props.token || localStorage.getItem("token")) {
-            this.props.history.push("/Search");
+            this.props.history.push("/");
         }
     }
 
     componentDidUpdate = () => {
         if(this.props.token) {
             localStorage.setItem("token", this.props.token);
-            this.props.history.push("/Search");
+            this.props.history.push("/");
         } else {
             localStorage.removeItem("token");
         }

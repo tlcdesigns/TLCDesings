@@ -13,6 +13,7 @@ class ItemDetails extends Component {
 
     state = {
         buttonClicked: false,
+        leftRating: false,
     }
 
     addToCart = () => {
@@ -31,6 +32,13 @@ class ItemDetails extends Component {
         let pathname = window.location.pathname;
         let ID = pathname.slice(pathname.lastIndexOf("/") + 1, pathname.length);
         this.props.getItemDetails(ID);
+    }
+
+    MakeReview = () => {
+        this.setState({
+            leftRating: true
+        })
+        console.log("review function ran!");
     }
 
     render() {
@@ -86,8 +94,18 @@ class ItemDetails extends Component {
                         <div className="col s12 addToCartContainer">
                             <button onClick={this.addToCart} className={"col s12 checkoutBtn center btn"}>Add Item(s) To Cart</button>
                         </div>
-                        <div>
+                        <div className={"center"}>
                             {this.props.addToCartConfirmation && this.state.buttonClicked ? this.props.addToCartConfirmation : ""}
+                        </div>
+                        <div className="col s12 ReviewButtonContainer">
+                            <button onClick={this.MakeReview} className={"col s12 checkoutBtn center btn"}>Leave A Review</button>
+                        </div>
+                        <div className={"center"}>
+                            {this.state.leftRating ? 'Thank you for leaving a rating!' : ""}
+                        </div>
+                        <div className={"col s12 itemInCartContainer"}>
+                            <div className={"col s2 picOfCart"}></div>
+                            <div className="col s10 center cartText">{`${300} other people have this in their carts.`}</div>
                         </div>
                     </div>
                 </div>
