@@ -6,13 +6,11 @@ import topaz from '../search/images/topaz_necklace.jpg';
 class MakeCartItems extends Component {
 
     componentDidMount = () => {
-        debugger;
         const {price, quantity} = this.props.about;
         this.generateSubTotal(price, quantity);
     }
 
     generateSubTotal = (price, quantity) => {
-        debugger;
         let total = Math.ceil(price) * quantity;
         this.props.updateFunction(total);
         // this.props.updateTax();
@@ -26,7 +24,6 @@ class MakeCartItems extends Component {
     }
 
     render() {
-        debugger;
         const {description, image, price, quantity, itemID} = this.props.about;
         return (
             <Link to={`/itemDetails/${itemID}`}>

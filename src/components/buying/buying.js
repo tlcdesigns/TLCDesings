@@ -15,6 +15,12 @@ class Buying extends Component {
         })
     };
 
+    backToStepOne = () => {
+        this.setState({
+            firstStep: true,
+        })
+    }
+
     submitFunction = () => {
         this.setState({
             firstStep: false
@@ -22,7 +28,6 @@ class Buying extends Component {
     };
 
     showInput = () => {
-        debugger;
         this.setState({
             showInput: !this.state.showInput
         })
@@ -174,20 +179,18 @@ class Buying extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className={"center col s12"}>
-                            <button className={"btn"}>Place Your Order</button>
+                        <div className={"col s12"}>
+                            <button onClick={this.backToStepOne} className={"col s2 offset-s3 btn"}>back</button>
+                            <button className={"col offset-s2 s2 btn"}>Place Your Order</button>
                         </div>
                     </div>
                 </div>
-
-
             </Fragment>
         )
     }
 }
 
 function validate({fullNameInput, addressInput, aptInput, zipInput, cityInput, stateInput}) {
-    debugger;
     const errors = {};
 
     if (!fullNameInput) {
@@ -212,7 +215,6 @@ function validate({fullNameInput, addressInput, aptInput, zipInput, cityInput, s
     if (!stateInput) {
         errors.stateInput = "Inavlaid whatever"
     }
-
 
     return (
         errors

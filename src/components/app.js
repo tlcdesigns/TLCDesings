@@ -27,11 +27,11 @@ const App = () => (
             <Route path={"/Buying/:userID"} component={Auth(Buying)}/>
             <Route path={"/itemDetails/:itemID"} component={ItemDetails}/>
             <Route path={"/Cart"} component={Auth(Cart)}/> {/*:userID*/}
-            <Route path={"/UserProfile/:userID"} component={Auth(Profile)}/>
             <Route path={"/SignIn"} component={SignIn}/>
             <Route path={"/SignUp"} component={SignUp}/>
         </div>
         <div className={"row"}>
+            <Route path={"/UserProfile"} component={Auth(Profile)}/> {/* /:userID */}
             <Route exact path={"/"} component={Search}/>
         </div>
         

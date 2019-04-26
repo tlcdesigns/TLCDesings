@@ -72,10 +72,18 @@
 
 }
 
-.paySection {
+.containerProfile {
+    width: 80%;
+    border: 1px solid black;
     height: 100vh;
-    border: solid black 1px;
+    margin: auto;
+}
 
+.paySection {
+    height: 39vh;
+    position: relative;
+    top: 23px;
+    border: solid black 2px;
 }
 
 .itemDetails>p:nth-child(3) {

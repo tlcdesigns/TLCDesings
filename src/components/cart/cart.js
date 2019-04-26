@@ -36,7 +36,6 @@ class Cart extends Component {
     // }
 
     updateTotalOrder = () => {
-        debugger;
         const {subtotal, tax, shippingCost} = this.state;
         let totalCost = 0;
         totalCost = (subtotal + (subtotal * .0025)) + shippingCost;
